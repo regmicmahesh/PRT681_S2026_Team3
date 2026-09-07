@@ -1,0 +1,133 @@
+{
+  "info": {
+    "name": "Week 2 API Practice",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1 - Get product by id (functional)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "https://dummyjson.com/products/1",
+          "protocol": "https",
+          "host": ["dummyjson", "com"],
+          "path": ["products", "1"]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"status 200\", () => pm.response.to.have.status(200));",
+              "pm.test(\"id is 1\", () => pm.expect(pm.response.json().id).to.eql(1));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "2 - List products with limit (functional)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "https://dummyjson.com/products?limit=5",
+          "protocol": "https",
+          "host": ["dummyjson", "com"],
+          "path": ["products"],
+          "query": [{ "key": "limit", "value": "5" }]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"status 200\", () => pm.response.to.have.status(200));",
+              "pm.test(\"<=5 products\", () => pm.expect(pm.response.json().products.length).to.be.at.most(5));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "3 - Get nonexistent product (negative/boundary)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "https://dummyjson.com/products/99999",
+          "protocol": "https",
+          "host": ["dummyjson", "com"],
+          "path": ["products", "99999"]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"status 404\", () => pm.response.to.have.status(404));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "4 - Add product (functional)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"title\": \"Test Product\"}"
+        },
+        "url": {
+          "raw": "https://dummyjson.com/products/add",
+          "protocol": "https",
+          "host": ["dummyjson", "com"],
+          "path": ["products", "add"]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"status 201\", () => pm.response.to.have.status(201));",
+              "pm.test(\"has id + title\", () => { const j = pm.response.json(); pm.expect(j).to.have.property(\"id\"); pm.expect(j.title).to.eql(\"Test Product\"); });"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "5 - Delete product (functional)",
+      "request": {
+        "method": "DELETE",
+        "url": {
+          "raw": "https://dummyjson.com/products/1",
+          "protocol": "https",
+          "host": ["dummyjson", "com"],
+          "path": ["products", "1"]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"status 200\", () => pm.response.to.have.status(200));",
+              "pm.test(\"isDeleted true\", () => pm.expect(pm.response.json().isDeleted).to.eql(true));"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
