@@ -1,0 +1,662 @@
+[
+  {
+    "Year": 2021,
+    "Region": "Darwin",
+    "Park": "Berry Springs Nature Reserve",
+    "Visits": 158500
+  },
+  {
+    "Year": 2022,
+    "Region": "Darwin",
+    "Park": "Berry Springs Nature Reserve",
+    "Visits": 204100
+  },
+  {
+    "Year": 2023,
+    "Region": "Darwin",
+    "Park": "Berry Springs Nature Reserve",
+    "Visits": 179300
+  },
+  {
+    "Year": 2024,
+    "Region": "Darwin",
+    "Park": "Berry Springs Nature Reserve",
+    "Visits": 175800
+  },
+  {
+    "Year": 2025,
+    "Region": "Darwin",
+    "Park": "Berry Springs Nature Reserve",
+    "Visits": 186600
+  },
+  {
+    "Year": 2021,
+    "Region": "Darwin",
+    "Park": "Casuarina Coastal Reserve - Whole of Park",
+    "Visits": 1452800
+  },
+  {
+    "Year": 2022,
+    "Region": "Darwin",
+    "Park": "Casuarina Coastal Reserve - Whole of Park",
+    "Visits": 1411300
+  },
+  {
+    "Year": 2023,
+    "Region": "Darwin",
+    "Park": "Casuarina Coastal Reserve - Whole of Park",
+    "Visits": 1357000
+  },
+  {
+    "Year": 2024,
+    "Region": "Darwin",
+    "Park": "Casuarina Coastal Reserve - Whole of Park",
+    "Visits": 1346000
+  },
+  {
+    "Year": 2025,
+    "Region": "Darwin",
+    "Park": "Casuarina Coastal Reserve - Whole of Park",
+    "Visits": 1422200
+  },
+  {
+    "Year": 2021,
+    "Region": "Darwin",
+    "Park": "Fogg Dam Conservation Reserve",
+    "Visits": 51500
+  },
+  {
+    "Year": 2022,
+    "Region": "Darwin",
+    "Park": "Fogg Dam Conservation Reserve",
+    "Visits": 65700
+  },
+  {
+    "Year": 2023,
+    "Region": "Darwin",
+    "Park": "Fogg Dam Conservation Reserve",
+    "Visits": 57400
+  },
+  {
+    "Year": 2024,
+    "Region": "Darwin",
+    "Park": "Fogg Dam Conservation Reserve",
+    "Visits": 69300
+  },
+  {
+    "Year": 2025,
+    "Region": "Darwin",
+    "Park": "Fogg Dam Conservation Reserve",
+    "Visits": 55700
+  },
+  {
+    "Year": 2021,
+    "Region": "Darwin",
+    "Park": "Howard Springs Nature Park",
+    "Visits": 119600
+  },
+  {
+    "Year": 2022,
+    "Region": "Darwin",
+    "Park": "Howard Springs Nature Park",
+    "Visits": 134500
+  },
+  {
+    "Year": 2023,
+    "Region": "Darwin",
+    "Park": "Howard Springs Nature Park",
+    "Visits": 137800
+  },
+  {
+    "Year": 2024,
+    "Region": "Darwin",
+    "Park": "Howard Springs Nature Park",
+    "Visits": 120700
+  },
+  {
+    "Year": 2025,
+    "Region": "Darwin",
+    "Park": "Howard Springs Nature Park",
+    "Visits": 126600
+  },
+  {
+    "Year": 2021,
+    "Region": "Darwin",
+    "Park": "Litchfield National Park - Whole of Park",
+    "Visits": 274400
+  },
+  {
+    "Year": 2022,
+    "Region": "Darwin",
+    "Park": "Litchfield National Park - Whole of Park",
+    "Visits": 367600
+  },
+  {
+    "Year": 2023,
+    "Region": "Darwin",
+    "Park": "Litchfield National Park - Whole of Park",
+    "Visits": 253400
+  },
+  {
+    "Year": 2024,
+    "Region": "Darwin",
+    "Park": "Litchfield National Park - Whole of Park",
+    "Visits": 244200
+  },
+  {
+    "Year": 2025,
+    "Region": "Darwin",
+    "Park": "Litchfield National Park - Whole of Park",
+    "Visits": 280100
+  },
+  {
+    "Year": 2021,
+    "Region": "Darwin",
+    "Park": "Mary River National Park - Shady Camp Conservation Reserve",
+    "Visits": 37400
+  },
+  {
+    "Year": 2022,
+    "Region": "Darwin",
+    "Park": "Mary River National Park - Shady Camp Conservation Reserve",
+    "Visits": 43500
+  },
+  {
+    "Year": 2023,
+    "Region": "Darwin",
+    "Park": "Mary River National Park - Shady Camp Conservation Reserve",
+    "Visits": 39000
+  },
+  {
+    "Year": 2024,
+    "Region": "Darwin",
+    "Park": "Mary River National Park - Shady Camp Conservation Reserve",
+    "Visits": 34400
+  },
+  {
+    "Year": 2025,
+    "Region": "Darwin",
+    "Park": "Mary River National Park - Shady Camp Conservation Reserve",
+    "Visits": 32300
+  },
+  {
+    "Year": 2021,
+    "Region": "Katherine",
+    "Park": "Cutta Cutta Caves Nature Park",
+    "Visits": 13400
+  },
+  {
+    "Year": 2022,
+    "Region": "Katherine",
+    "Park": "Cutta Cutta Caves Nature Park",
+    "Visits": 17200
+  },
+  {
+    "Year": 2023,
+    "Region": "Katherine",
+    "Park": "Cutta Cutta Caves Nature Park",
+    "Visits": 11500
+  },
+  {
+    "Year": 2024,
+    "Region": "Katherine",
+    "Park": "Cutta Cutta Caves Nature Park",
+    "Visits": 10200
+  },
+  {
+    "Year": 2025,
+    "Region": "Katherine",
+    "Park": "Cutta Cutta Caves Nature Park",
+    "Visits": 10400
+  },
+  {
+    "Year": 2021,
+    "Region": "Katherine",
+    "Park": "Elsey National Park - Whole of Park",
+    "Visits": 232500
+  },
+  {
+    "Year": 2022,
+    "Region": "Katherine",
+    "Park": "Elsey National Park - Whole of Park",
+    "Visits": 207700
+  },
+  {
+    "Year": 2023,
+    "Region": "Katherine",
+    "Park": "Elsey National Park - Whole of Park",
+    "Visits": 255400
+  },
+  {
+    "Year": 2024,
+    "Region": "Katherine",
+    "Park": "Elsey National Park - Whole of Park",
+    "Visits": 201600
+  },
+  {
+    "Year": 2025,
+    "Region": "Katherine",
+    "Park": "Elsey National Park - Whole of Park",
+    "Visits": 146800
+  },
+  {
+    "Year": 2021,
+    "Region": "Katherine",
+    "Park": "Judbarra/Gregory National Park - Whole of Park",
+    "Visits": 48000
+  },
+  {
+    "Year": 2022,
+    "Region": "Katherine",
+    "Park": "Judbarra/Gregory National Park - Whole of Park",
+    "Visits": 49600
+  },
+  {
+    "Year": 2023,
+    "Region": "Katherine",
+    "Park": "Judbarra/Gregory National Park - Whole of Park",
+    "Visits": 46000
+  },
+  {
+    "Year": 2024,
+    "Region": "Katherine",
+    "Park": "Judbarra/Gregory National Park - Whole of Park",
+    "Visits": 37300
+  },
+  {
+    "Year": 2025,
+    "Region": "Katherine",
+    "Park": "Judbarra/Gregory National Park - Whole of Park",
+    "Visits": 43900
+  },
+  {
+    "Year": 2021,
+    "Region": "Katherine",
+    "Park": "Keep River National Park",
+    "Visits": 20200
+  },
+  {
+    "Year": 2022,
+    "Region": "Katherine",
+    "Park": "Keep River National Park",
+    "Visits": 23200
+  },
+  {
+    "Year": 2023,
+    "Region": "Katherine",
+    "Park": "Keep River National Park",
+    "Visits": 11700
+  },
+  {
+    "Year": 2024,
+    "Region": "Katherine",
+    "Park": "Keep River National Park",
+    "Visits": 14100
+  },
+  {
+    "Year": 2025,
+    "Region": "Katherine",
+    "Park": "Keep River National Park",
+    "Visits": 13400
+  },
+  {
+    "Year": 2021,
+    "Region": "Katherine",
+    "Park": "Limmen National Park - Hodgson River Crossing",
+    "Visits": 11600
+  },
+  {
+    "Year": 2022,
+    "Region": "Katherine",
+    "Park": "Limmen National Park - Hodgson River Crossing",
+    "Visits": 10100
+  },
+  {
+    "Year": 2023,
+    "Region": "Katherine",
+    "Park": "Limmen National Park - Hodgson River Crossing",
+    "Visits": 9400
+  },
+  {
+    "Year": 2024,
+    "Region": "Katherine",
+    "Park": "Limmen National Park - Hodgson River Crossing",
+    "Visits": 9800
+  },
+  {
+    "Year": 2025,
+    "Region": "Katherine",
+    "Park": "Limmen National Park - Hodgson River Crossing",
+    "Visits": 9600
+  },
+  {
+    "Year": 2021,
+    "Region": "Katherine",
+    "Park": "Nitmiluk National Park - Whole of Park",
+    "Visits": 271700
+  },
+  {
+    "Year": 2022,
+    "Region": "Katherine",
+    "Park": "Nitmiluk National Park - Whole of Park",
+    "Visits": 309800
+  },
+  {
+    "Year": 2023,
+    "Region": "Katherine",
+    "Park": "Nitmiluk National Park - Whole of Park",
+    "Visits": 266200
+  },
+  {
+    "Year": 2024,
+    "Region": "Katherine",
+    "Park": "Nitmiluk National Park - Whole of Park",
+    "Visits": 259800
+  },
+  {
+    "Year": 2025,
+    "Region": "Katherine",
+    "Park": "Nitmiluk National Park - Whole of Park",
+    "Visits": 251200
+  },
+  {
+    "Year": 2021,
+    "Region": "Barkly",
+    "Park": "Karlu Karlu (Devils Marbles) Conservation Reserve",
+    "Visits": 146300
+  },
+  {
+    "Year": 2022,
+    "Region": "Barkly",
+    "Park": "Karlu Karlu (Devils Marbles) Conservation Reserve",
+    "Visits": 99400
+  },
+  {
+    "Year": 2023,
+    "Region": "Barkly",
+    "Park": "Karlu Karlu (Devils Marbles) Conservation Reserve",
+    "Visits": 225200
+  },
+  {
+    "Year": 2024,
+    "Region": "Barkly",
+    "Park": "Karlu Karlu (Devils Marbles) Conservation Reserve",
+    "Visits": 98800
+  },
+  {
+    "Year": 2025,
+    "Region": "Barkly",
+    "Park": "Karlu Karlu (Devils Marbles) Conservation Reserve",
+    "Visits": 110100
+  },
+  {
+    "Year": 2021,
+    "Region": "Barkly",
+    "Park": "Tennant Creek Telegraph Station",
+    "Visits": 15200
+  },
+  {
+    "Year": 2022,
+    "Region": "Barkly",
+    "Park": "Tennant Creek Telegraph Station",
+    "Visits": 19600
+  },
+  {
+    "Year": 2023,
+    "Region": "Barkly",
+    "Park": "Tennant Creek Telegraph Station",
+    "Visits": 14000
+  },
+  {
+    "Year": 2024,
+    "Region": "Barkly",
+    "Park": "Tennant Creek Telegraph Station",
+    "Visits": 19300
+  },
+  {
+    "Year": 2025,
+    "Region": "Barkly",
+    "Park": "Tennant Creek Telegraph Station",
+    "Visits": 18300
+  },
+  {
+    "Year": 2021,
+    "Region": "Alice Springs",
+    "Park": "Alice Springs Telegraph Station Historical Reserve",
+    "Visits": 183400
+  },
+  {
+    "Year": 2022,
+    "Region": "Alice Springs",
+    "Park": "Alice Springs Telegraph Station Historical Reserve",
+    "Visits": 187400
+  },
+  {
+    "Year": 2023,
+    "Region": "Alice Springs",
+    "Park": "Alice Springs Telegraph Station Historical Reserve",
+    "Visits": 180200
+  },
+  {
+    "Year": 2024,
+    "Region": "Alice Springs",
+    "Park": "Alice Springs Telegraph Station Historical Reserve",
+    "Visits": 142900
+  },
+  {
+    "Year": 2025,
+    "Region": "Alice Springs",
+    "Park": "Alice Springs Telegraph Station Historical Reserve",
+    "Visits": 197800
+  },
+  {
+    "Year": 2021,
+    "Region": "Alice Springs",
+    "Park": "Arltunga Historical Reserve",
+    "Visits": 7300
+  },
+  {
+    "Year": 2022,
+    "Region": "Alice Springs",
+    "Park": "Arltunga Historical Reserve",
+    "Visits": 11700
+  },
+  {
+    "Year": 2023,
+    "Region": "Alice Springs",
+    "Park": "Arltunga Historical Reserve",
+    "Visits": 10700
+  },
+  {
+    "Year": 2024,
+    "Region": "Alice Springs",
+    "Park": "Arltunga Historical Reserve",
+    "Visits": 10800
+  },
+  {
+    "Year": 2025,
+    "Region": "Alice Springs",
+    "Park": "Arltunga Historical Reserve",
+    "Visits": 41800
+  },
+  {
+    "Year": 2021,
+    "Region": "Alice Springs",
+    "Park": "Chambers Pillar Historical Reserve",
+    "Visits": 3700
+  },
+  {
+    "Year": 2022,
+    "Region": "Alice Springs",
+    "Park": "Chambers Pillar Historical Reserve",
+    "Visits": 3000
+  },
+  {
+    "Year": 2023,
+    "Region": "Alice Springs",
+    "Park": "Chambers Pillar Historical Reserve",
+    "Visits": 2500
+  },
+  {
+    "Year": 2024,
+    "Region": "Alice Springs",
+    "Park": "Chambers Pillar Historical Reserve",
+    "Visits": 2000
+  },
+  {
+    "Year": 2025,
+    "Region": "Alice Springs",
+    "Park": "Chambers Pillar Historical Reserve",
+    "Visits": 2200
+  },
+  {
+    "Year": 2021,
+    "Region": "Alice Springs",
+    "Park": "Finke Gorge National Park",
+    "Visits": 18100
+  },
+  {
+    "Year": 2022,
+    "Region": "Alice Springs",
+    "Park": "Finke Gorge National Park",
+    "Visits": 18000
+  },
+  {
+    "Year": 2023,
+    "Region": "Alice Springs",
+    "Park": "Finke Gorge National Park",
+    "Visits": 14400
+  },
+  {
+    "Year": 2024,
+    "Region": "Alice Springs",
+    "Park": "Finke Gorge National Park",
+    "Visits": 13400
+  },
+  {
+    "Year": 2025,
+    "Region": "Alice Springs",
+    "Park": "Finke Gorge National Park",
+    "Visits": 19000
+  },
+  {
+    "Year": 2021,
+    "Region": "Alice Springs",
+    "Park": "Rainbow Valley Conservation Reserve",
+    "Visits": 10300
+  },
+  {
+    "Year": 2022,
+    "Region": "Alice Springs",
+    "Park": "Rainbow Valley Conservation Reserve",
+    "Visits": 8200
+  },
+  {
+    "Year": 2023,
+    "Region": "Alice Springs",
+    "Park": "Rainbow Valley Conservation Reserve",
+    "Visits": 8000
+  },
+  {
+    "Year": 2024,
+    "Region": "Alice Springs",
+    "Park": "Rainbow Valley Conservation Reserve",
+    "Visits": 6500
+  },
+  {
+    "Year": 2025,
+    "Region": "Alice Springs",
+    "Park": "Rainbow Valley Conservation Reserve",
+    "Visits": 7000
+  },
+  {
+    "Year": 2021,
+    "Region": "Alice Springs",
+    "Park": "Trephina Gorge Nature Park",
+    "Visits": 25600
+  },
+  {
+    "Year": 2022,
+    "Region": "Alice Springs",
+    "Park": "Trephina Gorge Nature Park",
+    "Visits": 25700
+  },
+  {
+    "Year": 2023,
+    "Region": "Alice Springs",
+    "Park": "Trephina Gorge Nature Park",
+    "Visits": 32100
+  },
+  {
+    "Year": 2024,
+    "Region": "Alice Springs",
+    "Park": "Trephina Gorge Nature Park",
+    "Visits": 33800
+  },
+  {
+    "Year": 2025,
+    "Region": "Alice Springs",
+    "Park": "Trephina Gorge Nature Park",
+    "Visits": 38500
+  },
+  {
+    "Year": 2021,
+    "Region": "Alice Springs",
+    "Park": "Watarrka National Park",
+    "Visits": 113800
+  },
+  {
+    "Year": 2022,
+    "Region": "Alice Springs",
+    "Park": "Watarrka National Park",
+    "Visits": 196700
+  },
+  {
+    "Year": 2023,
+    "Region": "Alice Springs",
+    "Park": "Watarrka National Park",
+    "Visits": 186800
+  },
+  {
+    "Year": 2024,
+    "Region": "Alice Springs",
+    "Park": "Watarrka National Park",
+    "Visits": 193500
+  },
+  {
+    "Year": 2025,
+    "Region": "Alice Springs",
+    "Park": "Watarrka National Park",
+    "Visits": 208900
+  },
+  {
+    "Year": 2021,
+    "Region": "Alice Springs",
+    "Park": "Tjoritja / West MacDonnell National Park - Whole of Park",
+    "Visits": 126100
+  },
+  {
+    "Year": 2022,
+    "Region": "Alice Springs",
+    "Park": "Tjoritja / West MacDonnell National Park - Whole of Park",
+    "Visits": 170600
+  },
+  {
+    "Year": 2023,
+    "Region": "Alice Springs",
+    "Park": "Tjoritja / West MacDonnell National Park - Whole of Park",
+    "Visits": 155500
+  },
+  {
+    "Year": 2024,
+    "Region": "Alice Springs",
+    "Park": "Tjoritja / West MacDonnell National Park - Whole of Park",
+    "Visits": 145400
+  },
+  {
+    "Year": 2025,
+    "Region": "Alice Springs",
+    "Park": "Tjoritja / West MacDonnell National Park - Whole of Park",
+    "Visits": 137300
+  }
+]
