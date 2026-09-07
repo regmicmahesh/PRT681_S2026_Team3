@@ -1,0 +1,17 @@
+{
+  "publisher": "Parks & Wildlife NT / Northern Territory Government",
+  "title": "Park visitor data",
+  "url": "https://dth.nt.gov.au/parks-and-wildlife/parks-and-wildlife-statistics-and-research/park-visitor-data",
+  "accessed": "2026-09-05",
+  "coverage": "22 listed parks/reserves; 2021\u20132025 calendar years",
+  "excluded": "The three entries under Other",
+  "unit": "estimated annual visits, rounded to nearest 100",
+  "extraction": "Manually transcribed numeric table; punctuation and whole-of-park name capitalisation normalised. No values imputed.",
+  "official_totals": {
+    "2021": 3341400,
+    "2022": 3584600,
+    "2023": 3453500,
+    "2024": 3189600,
+    "2025": 3359700
+  }
+}

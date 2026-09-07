@@ -1,0 +1,680 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>NT park visits</title>
+<style>
+:root{color-scheme:light dark}*{box-sizing:border-box}body{margin:0;background:light-dark(#f3f3f3,#151515);color:light-dark(#171717,#eee);font:15px/1.5 Arial,sans-serif}main{max-width:1120px;margin:auto;padding:24px}header{border-bottom:2px solid currentColor;margin-bottom:20px}h1{font-size:28px;font-weight:500;margin:0}h2{font-size:18px;font-weight:500;margin:0 0 16px}.sub{color:light-dark(#555,#ccc)}.controls{display:flex;gap:20px;flex-wrap:wrap;align-items:end;margin-bottom:20px}label{display:grid;gap:5px}select,button{font:inherit;padding:9px;background:light-dark(#fff,#292929);color:inherit;border:1px solid light-dark(#bbb,#666)}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.panel{background:light-dark(#fff,#242424);padding:18px;border:1px solid light-dark(#ddd,#555);min-width:0}.value{font-size:30px;display:block;margin:8px 0}.plots{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}.barrow{display:grid;grid-template-columns:95px minmax(0,1fr) 86px;gap:8px;align-items:center;margin:16px 0}.track{height:16px;background:light-dark(#eee,#383838)}.bar{height:100%;background:light-dark(#555,#bbb)}.barrow span:last-child{text-align:right}table{border-collapse:collapse;width:100%;font-size:14px}th,td{padding:8px;border-bottom:1px solid light-dark(#ddd,#555);text-align:right}th:first-child,td:first-child{text-align:left;max-width:420px;overflow-wrap:anywhere}caption{text-align:left;margin-bottom:12px;font-size:18px}footer{margin-top:16px}a{color:inherit}.source{font-size:13px;margin:18px 0}.macro{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center}.macro p{margin:0}.tablebox{overflow-x:auto}button{cursor:pointer}@media(max-width:650px){main{padding:12px}.metrics,.plots{grid-template-columns:1fr}.barrow{grid-template-columns:90px minmax(0,1fr) 82px}h1{font-size:24px}th,td{padding:7px 4px}table{font-size:12px}}
+</style></head><body><main id="nt-parks">
+<header><h1>Northern Territory park visits</h1><p class="sub">Report Writer · Week 2 · Shijian Zhu | s394861</p></header>
+<div class="controls"><label>Calendar year<select id="year"><option>2025</option><option>2024</option><option>2023</option><option>2022</option><option>2021</option></select></label><label>Region<select id="region"><option>All</option><option>Darwin</option><option>Katherine</option><option>Barkly</option><option>Alice Springs</option></select></label><span class="sub">22 parks/reserves · Government estimates · Companion preview</span></div>
+<div class="metrics" aria-live="polite"><section class="panel">Estimated visits<strong class="value" id="total"></strong><span id="yearlabel" class="sub"></span></section><section class="panel">Previous year<strong class="value" id="previous"></strong><span class="sub">Same selected parks and region</span></section><section class="panel">Year-on-year change<strong class="value" id="change"></strong><span id="delta" class="sub"></span></section></div>
+<div class="plots"><section class="panel"><h2>Annual estimated visits</h2><div id="trend"></div></section><section class="panel"><h2>Regions in the selected year</h2><div id="regions"></div></section></div>
+<section class="panel tablebox"><table><caption>Park comparison</caption><thead><tr><th scope="col">Park</th><th scope="col">Visits</th><th scope="col">Previous year</th><th scope="col">YoY</th></tr></thead><tbody id="parks"></tbody></table></section>
+<p class="source">Source: <a href="https://dth.nt.gov.au/parks-and-wildlife/parks-and-wildlife-statistics-and-research/park-visitor-data" target="_blank" rel="noopener">Parks &amp; Wildlife NT — Park visitor data</a>. Accessed 5 September 2026. Annual estimates rounded to the nearest 100; visits are not unique people. Excludes the three “Other” entries. Comparisons are student analysis.</p>
+<footer class="panel"><div class="macro"><div><h2>Excel automation preview</h2><p>Convert the 22-row annual table to 110 park-year records.</p></div><button id="unpivot" type="button">Preview conversion</button></div><p id="status" aria-live="polite">Actual VBA module: PrepareParkVisits. This button is a simulation.</p></footer>
+<script id="dataset" type="application/json">[
+  {
+    "Year": 2021,
+    "Region": "Darwin",
+    "Park": "Berry Springs Nature Reserve",
+    "Visits": 158500
+  },
+  {
+    "Year": 2022,
+    "Region": "Darwin",
+    "Park": "Berry Springs Nature Reserve",
+    "Visits": 204100
+  },
+  {
+    "Year": 2023,
+    "Region": "Darwin",
+    "Park": "Berry Springs Nature Reserve",
+    "Visits": 179300
+  },
+  {
+    "Year": 2024,
+    "Region": "Darwin",
+    "Park": "Berry Springs Nature Reserve",
+    "Visits": 175800
+  },
+  {
+    "Year": 2025,
+    "Region": "Darwin",
+    "Park": "Berry Springs Nature Reserve",
+    "Visits": 186600
+  },
+  {
+    "Year": 2021,
+    "Region": "Darwin",
+    "Park": "Casuarina Coastal Reserve - Whole of Park",
+    "Visits": 1452800
+  },
+  {
+    "Year": 2022,
+    "Region": "Darwin",
+    "Park": "Casuarina Coastal Reserve - Whole of Park",
+    "Visits": 1411300
+  },
+  {
+    "Year": 2023,
+    "Region": "Darwin",
+    "Park": "Casuarina Coastal Reserve - Whole of Park",
+    "Visits": 1357000
+  },
+  {
+    "Year": 2024,
+    "Region": "Darwin",
+    "Park": "Casuarina Coastal Reserve - Whole of Park",
+    "Visits": 1346000
+  },
+  {
+    "Year": 2025,
+    "Region": "Darwin",
+    "Park": "Casuarina Coastal Reserve - Whole of Park",
+    "Visits": 1422200
+  },
+  {
+    "Year": 2021,
+    "Region": "Darwin",
+    "Park": "Fogg Dam Conservation Reserve",
+    "Visits": 51500
+  },
+  {
+    "Year": 2022,
+    "Region": "Darwin",
+    "Park": "Fogg Dam Conservation Reserve",
+    "Visits": 65700
+  },
+  {
+    "Year": 2023,
+    "Region": "Darwin",
+    "Park": "Fogg Dam Conservation Reserve",
+    "Visits": 57400
+  },
+  {
+    "Year": 2024,
+    "Region": "Darwin",
+    "Park": "Fogg Dam Conservation Reserve",
+    "Visits": 69300
+  },
+  {
+    "Year": 2025,
+    "Region": "Darwin",
+    "Park": "Fogg Dam Conservation Reserve",
+    "Visits": 55700
+  },
+  {
+    "Year": 2021,
+    "Region": "Darwin",
+    "Park": "Howard Springs Nature Park",
+    "Visits": 119600
+  },
+  {
+    "Year": 2022,
+    "Region": "Darwin",
+    "Park": "Howard Springs Nature Park",
+    "Visits": 134500
+  },
+  {
+    "Year": 2023,
+    "Region": "Darwin",
+    "Park": "Howard Springs Nature Park",
+    "Visits": 137800
+  },
+  {
+    "Year": 2024,
+    "Region": "Darwin",
+    "Park": "Howard Springs Nature Park",
+    "Visits": 120700
+  },
+  {
+    "Year": 2025,
+    "Region": "Darwin",
+    "Park": "Howard Springs Nature Park",
+    "Visits": 126600
+  },
+  {
+    "Year": 2021,
+    "Region": "Darwin",
+    "Park": "Litchfield National Park - Whole of Park",
+    "Visits": 274400
+  },
+  {
+    "Year": 2022,
+    "Region": "Darwin",
+    "Park": "Litchfield National Park - Whole of Park",
+    "Visits": 367600
+  },
+  {
+    "Year": 2023,
+    "Region": "Darwin",
+    "Park": "Litchfield National Park - Whole of Park",
+    "Visits": 253400
+  },
+  {
+    "Year": 2024,
+    "Region": "Darwin",
+    "Park": "Litchfield National Park - Whole of Park",
+    "Visits": 244200
+  },
+  {
+    "Year": 2025,
+    "Region": "Darwin",
+    "Park": "Litchfield National Park - Whole of Park",
+    "Visits": 280100
+  },
+  {
+    "Year": 2021,
+    "Region": "Darwin",
+    "Park": "Mary River National Park - Shady Camp Conservation Reserve",
+    "Visits": 37400
+  },
+  {
+    "Year": 2022,
+    "Region": "Darwin",
+    "Park": "Mary River National Park - Shady Camp Conservation Reserve",
+    "Visits": 43500
+  },
+  {
+    "Year": 2023,
+    "Region": "Darwin",
+    "Park": "Mary River National Park - Shady Camp Conservation Reserve",
+    "Visits": 39000
+  },
+  {
+    "Year": 2024,
+    "Region": "Darwin",
+    "Park": "Mary River National Park - Shady Camp Conservation Reserve",
+    "Visits": 34400
+  },
+  {
+    "Year": 2025,
+    "Region": "Darwin",
+    "Park": "Mary River National Park - Shady Camp Conservation Reserve",
+    "Visits": 32300
+  },
+  {
+    "Year": 2021,
+    "Region": "Katherine",
+    "Park": "Cutta Cutta Caves Nature Park",
+    "Visits": 13400
+  },
+  {
+    "Year": 2022,
+    "Region": "Katherine",
+    "Park": "Cutta Cutta Caves Nature Park",
+    "Visits": 17200
+  },
+  {
+    "Year": 2023,
+    "Region": "Katherine",
+    "Park": "Cutta Cutta Caves Nature Park",
+    "Visits": 11500
+  },
+  {
+    "Year": 2024,
+    "Region": "Katherine",
+    "Park": "Cutta Cutta Caves Nature Park",
+    "Visits": 10200
+  },
+  {
+    "Year": 2025,
+    "Region": "Katherine",
+    "Park": "Cutta Cutta Caves Nature Park",
+    "Visits": 10400
+  },
+  {
+    "Year": 2021,
+    "Region": "Katherine",
+    "Park": "Elsey National Park - Whole of Park",
+    "Visits": 232500
+  },
+  {
+    "Year": 2022,
+    "Region": "Katherine",
+    "Park": "Elsey National Park - Whole of Park",
+    "Visits": 207700
+  },
+  {
+    "Year": 2023,
+    "Region": "Katherine",
+    "Park": "Elsey National Park - Whole of Park",
+    "Visits": 255400
+  },
+  {
+    "Year": 2024,
+    "Region": "Katherine",
+    "Park": "Elsey National Park - Whole of Park",
+    "Visits": 201600
+  },
+  {
+    "Year": 2025,
+    "Region": "Katherine",
+    "Park": "Elsey National Park - Whole of Park",
+    "Visits": 146800
+  },
+  {
+    "Year": 2021,
+    "Region": "Katherine",
+    "Park": "Judbarra/Gregory National Park - Whole of Park",
+    "Visits": 48000
+  },
+  {
+    "Year": 2022,
+    "Region": "Katherine",
+    "Park": "Judbarra/Gregory National Park - Whole of Park",
+    "Visits": 49600
+  },
+  {
+    "Year": 2023,
+    "Region": "Katherine",
+    "Park": "Judbarra/Gregory National Park - Whole of Park",
+    "Visits": 46000
+  },
+  {
+    "Year": 2024,
+    "Region": "Katherine",
+    "Park": "Judbarra/Gregory National Park - Whole of Park",
+    "Visits": 37300
+  },
+  {
+    "Year": 2025,
+    "Region": "Katherine",
+    "Park": "Judbarra/Gregory National Park - Whole of Park",
+    "Visits": 43900
+  },
+  {
+    "Year": 2021,
+    "Region": "Katherine",
+    "Park": "Keep River National Park",
+    "Visits": 20200
+  },
+  {
+    "Year": 2022,
+    "Region": "Katherine",
+    "Park": "Keep River National Park",
+    "Visits": 23200
+  },
+  {
+    "Year": 2023,
+    "Region": "Katherine",
+    "Park": "Keep River National Park",
+    "Visits": 11700
+  },
+  {
+    "Year": 2024,
+    "Region": "Katherine",
+    "Park": "Keep River National Park",
+    "Visits": 14100
+  },
+  {
+    "Year": 2025,
+    "Region": "Katherine",
+    "Park": "Keep River National Park",
+    "Visits": 13400
+  },
+  {
+    "Year": 2021,
+    "Region": "Katherine",
+    "Park": "Limmen National Park - Hodgson River Crossing",
+    "Visits": 11600
+  },
+  {
+    "Year": 2022,
+    "Region": "Katherine",
+    "Park": "Limmen National Park - Hodgson River Crossing",
+    "Visits": 10100
+  },
+  {
+    "Year": 2023,
+    "Region": "Katherine",
+    "Park": "Limmen National Park - Hodgson River Crossing",
+    "Visits": 9400
+  },
+  {
+    "Year": 2024,
+    "Region": "Katherine",
+    "Park": "Limmen National Park - Hodgson River Crossing",
+    "Visits": 9800
+  },
+  {
+    "Year": 2025,
+    "Region": "Katherine",
+    "Park": "Limmen National Park - Hodgson River Crossing",
+    "Visits": 9600
+  },
+  {
+    "Year": 2021,
+    "Region": "Katherine",
+    "Park": "Nitmiluk National Park - Whole of Park",
+    "Visits": 271700
+  },
+  {
+    "Year": 2022,
+    "Region": "Katherine",
+    "Park": "Nitmiluk National Park - Whole of Park",
+    "Visits": 309800
+  },
+  {
+    "Year": 2023,
+    "Region": "Katherine",
+    "Park": "Nitmiluk National Park - Whole of Park",
+    "Visits": 266200
+  },
+  {
+    "Year": 2024,
+    "Region": "Katherine",
+    "Park": "Nitmiluk National Park - Whole of Park",
+    "Visits": 259800
+  },
+  {
+    "Year": 2025,
+    "Region": "Katherine",
+    "Park": "Nitmiluk National Park - Whole of Park",
+    "Visits": 251200
+  },
+  {
+    "Year": 2021,
+    "Region": "Barkly",
+    "Park": "Karlu Karlu (Devils Marbles) Conservation Reserve",
+    "Visits": 146300
+  },
+  {
+    "Year": 2022,
+    "Region": "Barkly",
+    "Park": "Karlu Karlu (Devils Marbles) Conservation Reserve",
+    "Visits": 99400
+  },
+  {
+    "Year": 2023,
+    "Region": "Barkly",
+    "Park": "Karlu Karlu (Devils Marbles) Conservation Reserve",
+    "Visits": 225200
+  },
+  {
+    "Year": 2024,
+    "Region": "Barkly",
+    "Park": "Karlu Karlu (Devils Marbles) Conservation Reserve",
+    "Visits": 98800
+  },
+  {
+    "Year": 2025,
+    "Region": "Barkly",
+    "Park": "Karlu Karlu (Devils Marbles) Conservation Reserve",
+    "Visits": 110100
+  },
+  {
+    "Year": 2021,
+    "Region": "Barkly",
+    "Park": "Tennant Creek Telegraph Station",
+    "Visits": 15200
+  },
+  {
+    "Year": 2022,
+    "Region": "Barkly",
+    "Park": "Tennant Creek Telegraph Station",
+    "Visits": 19600
+  },
+  {
+    "Year": 2023,
+    "Region": "Barkly",
+    "Park": "Tennant Creek Telegraph Station",
+    "Visits": 14000
+  },
+  {
+    "Year": 2024,
+    "Region": "Barkly",
+    "Park": "Tennant Creek Telegraph Station",
+    "Visits": 19300
+  },
+  {
+    "Year": 2025,
+    "Region": "Barkly",
+    "Park": "Tennant Creek Telegraph Station",
+    "Visits": 18300
+  },
+  {
+    "Year": 2021,
+    "Region": "Alice Springs",
+    "Park": "Alice Springs Telegraph Station Historical Reserve",
+    "Visits": 183400
+  },
+  {
+    "Year": 2022,
+    "Region": "Alice Springs",
+    "Park": "Alice Springs Telegraph Station Historical Reserve",
+    "Visits": 187400
+  },
+  {
+    "Year": 2023,
+    "Region": "Alice Springs",
+    "Park": "Alice Springs Telegraph Station Historical Reserve",
+    "Visits": 180200
+  },
+  {
+    "Year": 2024,
+    "Region": "Alice Springs",
+    "Park": "Alice Springs Telegraph Station Historical Reserve",
+    "Visits": 142900
+  },
+  {
+    "Year": 2025,
+    "Region": "Alice Springs",
+    "Park": "Alice Springs Telegraph Station Historical Reserve",
+    "Visits": 197800
+  },
+  {
+    "Year": 2021,
+    "Region": "Alice Springs",
+    "Park": "Arltunga Historical Reserve",
+    "Visits": 7300
+  },
+  {
+    "Year": 2022,
+    "Region": "Alice Springs",
+    "Park": "Arltunga Historical Reserve",
+    "Visits": 11700
+  },
+  {
+    "Year": 2023,
+    "Region": "Alice Springs",
+    "Park": "Arltunga Historical Reserve",
+    "Visits": 10700
+  },
+  {
+    "Year": 2024,
+    "Region": "Alice Springs",
+    "Park": "Arltunga Historical Reserve",
+    "Visits": 10800
+  },
+  {
+    "Year": 2025,
+    "Region": "Alice Springs",
+    "Park": "Arltunga Historical Reserve",
+    "Visits": 41800
+  },
+  {
+    "Year": 2021,
+    "Region": "Alice Springs",
+    "Park": "Chambers Pillar Historical Reserve",
+    "Visits": 3700
+  },
+  {
+    "Year": 2022,
+    "Region": "Alice Springs",
+    "Park": "Chambers Pillar Historical Reserve",
+    "Visits": 3000
+  },
+  {
+    "Year": 2023,
+    "Region": "Alice Springs",
+    "Park": "Chambers Pillar Historical Reserve",
+    "Visits": 2500
+  },
+  {
+    "Year": 2024,
+    "Region": "Alice Springs",
+    "Park": "Chambers Pillar Historical Reserve",
+    "Visits": 2000
+  },
+  {
+    "Year": 2025,
+    "Region": "Alice Springs",
+    "Park": "Chambers Pillar Historical Reserve",
+    "Visits": 2200
+  },
+  {
+    "Year": 2021,
+    "Region": "Alice Springs",
+    "Park": "Finke Gorge National Park",
+    "Visits": 18100
+  },
+  {
+    "Year": 2022,
+    "Region": "Alice Springs",
+    "Park": "Finke Gorge National Park",
+    "Visits": 18000
+  },
+  {
+    "Year": 2023,
+    "Region": "Alice Springs",
+    "Park": "Finke Gorge National Park",
+    "Visits": 14400
+  },
+  {
+    "Year": 2024,
+    "Region": "Alice Springs",
+    "Park": "Finke Gorge National Park",
+    "Visits": 13400
+  },
+  {
+    "Year": 2025,
+    "Region": "Alice Springs",
+    "Park": "Finke Gorge National Park",
+    "Visits": 19000
+  },
+  {
+    "Year": 2021,
+    "Region": "Alice Springs",
+    "Park": "Rainbow Valley Conservation Reserve",
+    "Visits": 10300
+  },
+  {
+    "Year": 2022,
+    "Region": "Alice Springs",
+    "Park": "Rainbow Valley Conservation Reserve",
+    "Visits": 8200
+  },
+  {
+    "Year": 2023,
+    "Region": "Alice Springs",
+    "Park": "Rainbow Valley Conservation Reserve",
+    "Visits": 8000
+  },
+  {
+    "Year": 2024,
+    "Region": "Alice Springs",
+    "Park": "Rainbow Valley Conservation Reserve",
+    "Visits": 6500
+  },
+  {
+    "Year": 2025,
+    "Region": "Alice Springs",
+    "Park": "Rainbow Valley Conservation Reserve",
+    "Visits": 7000
+  },
+  {
+    "Year": 2021,
+    "Region": "Alice Springs",
+    "Park": "Trephina Gorge Nature Park",
+    "Visits": 25600
+  },
+  {
+    "Year": 2022,
+    "Region": "Alice Springs",
+    "Park": "Trephina Gorge Nature Park",
+    "Visits": 25700
+  },
+  {
+    "Year": 2023,
+    "Region": "Alice Springs",
+    "Park": "Trephina Gorge Nature Park",
+    "Visits": 32100
+  },
+  {
+    "Year": 2024,
+    "Region": "Alice Springs",
+    "Park": "Trephina Gorge Nature Park",
+    "Visits": 33800
+  },
+  {
+    "Year": 2025,
+    "Region": "Alice Springs",
+    "Park": "Trephina Gorge Nature Park",
+    "Visits": 38500
+  },
+  {
+    "Year": 2021,
+    "Region": "Alice Springs",
+    "Park": "Watarrka National Park",
+    "Visits": 113800
+  },
+  {
+    "Year": 2022,
+    "Region": "Alice Springs",
+    "Park": "Watarrka National Park",
+    "Visits": 196700
+  },
+  {
+    "Year": 2023,
+    "Region": "Alice Springs",
+    "Park": "Watarrka National Park",
+    "Visits": 186800
+  },
+  {
+    "Year": 2024,
+    "Region": "Alice Springs",
+    "Park": "Watarrka National Park",
+    "Visits": 193500
+  },
+  {
+    "Year": 2025,
+    "Region": "Alice Springs",
+    "Park": "Watarrka National Park",
+    "Visits": 208900
+  },
+  {
+    "Year": 2021,
+    "Region": "Alice Springs",
+    "Park": "Tjoritja / West MacDonnell National Park - Whole of Park",
+    "Visits": 126100
+  },
+  {
+    "Year": 2022,
+    "Region": "Alice Springs",
+    "Park": "Tjoritja / West MacDonnell National Park - Whole of Park",
+    "Visits": 170600
+  },
+  {
+    "Year": 2023,
+    "Region": "Alice Springs",
+    "Park": "Tjoritja / West MacDonnell National Park - Whole of Park",
+    "Visits": 155500
+  },
+  {
+    "Year": 2024,
+    "Region": "Alice Springs",
+    "Park": "Tjoritja / West MacDonnell National Park - Whole of Park",
+    "Visits": 145400
+  },
+  {
+    "Year": 2025,
+    "Region": "Alice Springs",
+    "Park": "Tjoritja / West MacDonnell National Park - Whole of Park",
+    "Visits": 137300
+  }
+]
+</script>
+<script>
+(()=>{const root=document.getElementById('nt-parks'),q=s=>root.querySelector(s),data=JSON.parse(q('#dataset').textContent);const fmt=n=>n.toLocaleString('en-AU'),pct=n=>(n>=0?'+':'')+(n*100).toFixed(1)+'%',sum=rs=>rs.reduce((s,r)=>s+r.Visits,0),esc=s=>s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');const bar=(label,value,max)=>'<div class="barrow"><span>'+esc(String(label))+'</span><div class="track"><div class="bar" style="width:'+(max?value/max*100:0)+'%"></div></div><span>'+fmt(value)+'</span></div>';
+function update(){const y=Number(q('#year').value),region=q('#region').value,subset=data.filter(r=>region==='All'||r.Region===region),current=subset.filter(r=>r.Year===y),prior=subset.filter(r=>r.Year===y-1),t=sum(current),p=sum(prior);q('#total').textContent=fmt(t);q('#previous').textContent=prior.length?fmt(p):'N/A';q('#change').textContent=p?pct(t/p-1):'N/A';q('#yearlabel').textContent=y+' · '+current.length+' parks/reserves';q('#delta').textContent=prior.length?(t-p>=0?'+':'')+fmt(t-p)+' estimated visits':'No 2020 comparison in this dataset';const years=[2021,2022,2023,2024,2025],totals=years.map(yr=>sum(subset.filter(r=>r.Year===yr)));q('#trend').innerHTML=years.map((yr,i)=>bar(yr,totals[i],Math.max(...totals))).join('');const regs=[...new Set(current.map(r=>r.Region))].map(r=>[r,sum(current.filter(v=>v.Region===r))]).sort((a,b)=>b[1]-a[1]);q('#regions').innerHTML=regs.map(([r,n])=>bar(r,n,Math.max(...regs.map(v=>v[1])))).join('');q('#parks').innerHTML=current.sort((a,b)=>b.Visits-a.Visits).map(r=>{const old=prior.find(v=>v.Park===r.Park);return '<tr><td>'+esc(r.Park)+'</td><td>'+fmt(r.Visits)+'</td><td>'+(old?fmt(old.Visits):'N/A')+'</td><td>'+(old&&old.Visits?pct(r.Visits/old.Visits-1):'N/A')+'</td></tr>';}).join('');}
+q('#year').addEventListener('change',update);q('#region').addEventListener('change',update);q('#unpivot').addEventListener('click',()=>{q('#status').textContent='Simulation: 110 records; 22 parks × 5 years. Annual totals unchanged. Run the VBA module in Excel for the actual conversion.';});update();})();
+</script></main></body></html>

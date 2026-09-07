@@ -1,0 +1,22 @@
+// Create each definition as a separate measure in Visits.
+// Annual data: no fabricated month or YTD calculation.
+
+Total Visits =
+SUM(Visits[Visits])
+
+Selected Year =
+MAX('Year'[Year])
+
+Selected Year Visits =
+VAR Y = [Selected Year]
+RETURN CALCULATE([Total Visits], REMOVEFILTERS('Year'), 'Year'[Year] = Y)
+
+Previous Year Visits =
+VAR Y = [Selected Year]
+RETURN CALCULATE([Total Visits], REMOVEFILTERS('Year'), 'Year'[Year] = Y - 1)
+
+YoY Change =
+DIVIDE([Selected Year Visits] - [Previous Year Visits], [Previous Year Visits])
+
+Visit Change =
+IF(NOT ISBLANK([Previous Year Visits]), [Selected Year Visits] - [Previous Year Visits])
