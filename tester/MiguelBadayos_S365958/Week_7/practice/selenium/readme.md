@@ -20,3 +20,7 @@ pip install -r requirements.txt
 ```bash
 pytest test_login.py -v
 ```
+
+## results of test
+
+![test results](results.png)
