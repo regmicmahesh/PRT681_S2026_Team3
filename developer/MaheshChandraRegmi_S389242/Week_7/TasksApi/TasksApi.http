@@ -1,0 +1,34 @@
+@TasksApi_HostAddress = http://localhost:5191
+
+GET {{TasksApi_HostAddress}}/api/tasks
+Accept: application/json
+
+###
+
+GET {{TasksApi_HostAddress}}/api/tasks/1
+Accept: application/json
+
+###
+
+POST {{TasksApi_HostAddress}}/api/tasks
+Content-Type: application/json
+
+{
+  "title": "Review Week 7 notes",
+  "description": "REST verbs, EF Core DbContext, React fetch."
+}
+
+###
+
+PUT {{TasksApi_HostAddress}}/api/tasks/1
+Content-Type: application/json
+
+{
+  "title": "Watch ASP.NET Core: Building RESTful APIs",
+  "description": "Map GET / POST / PUT / DELETE onto the Tasks controller.",
+  "isCompleted": true
+}
+
+###
+
+DELETE {{TasksApi_HostAddress}}/api/tasks/1
