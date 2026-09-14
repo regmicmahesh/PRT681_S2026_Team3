@@ -1,0 +1,10 @@
+[Bb]in/
+[Oo]bj/
+.vs/
+*.user
+*.db
+*.db-shm
+*.db-wal
+node_modules/
+dist/
+.DS_Store

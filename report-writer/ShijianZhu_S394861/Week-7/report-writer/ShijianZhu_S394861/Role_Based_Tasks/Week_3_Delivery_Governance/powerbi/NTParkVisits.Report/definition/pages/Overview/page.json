@@ -1,0 +1,15 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/1.0.0/schema.json",
+  "name": "Overview",
+  "displayName": "NT parks - estimated annual visits",
+  "displayOption": "FitToPage",
+  "width": 1280,
+  "height": 850,
+  "visualInteractions": [
+    {
+      "source": "yearFilter",
+      "target": "annualTrend",
+      "type": "NoFilter"
+    }
+  ]
+}

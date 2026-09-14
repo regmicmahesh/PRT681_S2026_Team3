@@ -1,0 +1,287 @@
+.page {
+  width: min(1080px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0 64px;
+}
+
+.mast {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: end;
+  padding-bottom: 28px;
+  border-bottom: 2px solid #1b2230;
+}
+
+.mast h1 {
+  margin: 0;
+  font-size: clamp(40px, 6vw, 64px);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+
+.count {
+  display: flex;
+  gap: 18px;
+  margin: 0;
+}
+
+.count div {
+  min-width: 76px;
+  padding: 10px 12px 8px;
+  background: #163a32;
+  color: #f3f6f1;
+}
+
+.count dt {
+  font-family: "SF Mono", "Cascadia Mono", ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.count dd {
+  margin: 4px 0 0;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 28px;
+  margin-top: 28px;
+  align-items: start;
+}
+
+.composer,
+.ticket {
+  background: #fffdf6;
+  border: 1px solid #c9c2b2;
+  box-shadow: 4px 4px 0 #1b2230;
+}
+
+.composer {
+  padding: 18px 18px 20px;
+  position: sticky;
+  top: 16px;
+}
+
+.composer h2,
+.queue-head h2 {
+  margin: 0 0 14px;
+  font-size: 18px;
+}
+
+.composer label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.composer input,
+.composer textarea {
+  width: 100%;
+  border: 1px solid #1b2230;
+  background: #fff;
+  color: #1b2230;
+  padding: 9px 10px;
+  font: inherit;
+}
+
+.composer textarea {
+  resize: vertical;
+  min-height: 96px;
+}
+
+.composer button,
+.actions button {
+  border: 1px solid #1b2230;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.composer button {
+  width: 100%;
+  margin-top: 4px;
+  padding: 10px 12px;
+  background: #c2410c;
+  color: #fff7f0;
+}
+
+.composer button:hover:not(:disabled),
+.composer button:focus-visible {
+  background: #9a3209;
+}
+
+.composer button:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.queue-head p,
+.empty,
+.meta {
+  color: #4a5363;
+}
+
+.queue-head p {
+  margin: -8px 0 16px;
+}
+
+.banner {
+  margin: 0 0 14px;
+  padding: 10px 12px;
+  background: #fde8e4;
+  border: 1px solid #b42318;
+  color: #7a160f;
+}
+
+.empty {
+  margin: 0;
+  padding: 28px 8px;
+  border: 1px dashed #8b93a1;
+}
+
+.tickets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+
+.ticket {
+  display: grid;
+  grid-template-columns: 72px 1fr auto;
+  gap: 14px;
+  padding: 0;
+  overflow: hidden;
+}
+
+.stub {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #163a32;
+  color: #f3f6f1;
+  font-family: "SF Mono", "Cascadia Mono", ui-monospace, monospace;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+}
+
+.body {
+  padding: 14px 0;
+}
+
+.body h3 {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.25;
+}
+
+.body p {
+  margin: 6px 0 0;
+}
+
+.meta {
+  margin-top: 10px;
+  font-family: "SF Mono", "Cascadia Mono", ui-monospace, monospace;
+  font-size: 12px;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 12px 12px 0;
+}
+
+.actions button {
+  padding: 7px 10px;
+  background: #fff;
+  color: #1b2230;
+  white-space: nowrap;
+}
+
+.actions .ghost:hover,
+.actions .ghost:focus-visible {
+  background: #163a32;
+  color: #f3f6f1;
+}
+
+.actions .danger {
+  color: #7a160f;
+  border-color: #7a160f;
+}
+
+.actions .danger:hover,
+.actions .danger:focus-visible {
+  background: #b42318;
+  color: #fff7f4;
+  border-color: #b42318;
+}
+
+.ticket.done h3 {
+  text-decoration: line-through;
+  color: #5b6474;
+}
+
+.ticket.done .stub {
+  background: #5b6474;
+}
+
+.ticket.skeleton {
+  min-height: 92px;
+  background: linear-gradient(90deg, #ece7db 25%, #f7f3e8 50%, #ece7db 75%);
+  background-size: 200% 100%;
+  animation: shine 1.2s linear infinite;
+  box-shadow: none;
+}
+
+@keyframes shine {
+  to {
+    background-position: -200% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticket.skeleton {
+    animation: none;
+  }
+}
+
+@media (max-width: 800px) {
+  .mast,
+  .board,
+  .ticket {
+    grid-template-columns: 1fr;
+  }
+
+  .count {
+    justify-content: flex-start;
+  }
+
+  .composer {
+    position: static;
+  }
+
+  .stub {
+    min-height: 40px;
+  }
+
+  .body {
+    padding: 4px 14px 0;
+  }
+
+  .actions {
+    flex-direction: row;
+    padding: 0 14px 14px;
+  }
+}
