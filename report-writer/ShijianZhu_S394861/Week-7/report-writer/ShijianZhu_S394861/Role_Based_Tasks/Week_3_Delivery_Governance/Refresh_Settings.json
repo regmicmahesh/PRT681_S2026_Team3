@@ -1,0 +1,19 @@
+{
+  "status": "proposed_not_applied",
+  "report_name": "NTParkVisits",
+  "workspace_preference": "PRT681 Team 3 if available with publishing rights; otherwise My workspace",
+  "mode": "Import",
+  "source_url": "https://raw.githubusercontent.com/regmicmahesh/PRT681_S2026_Team3/main/report-writer/ShijianZhu_S394861/Week6/report-writer/ShijianZhu_S394861/Role_Based_Tasks/Week_2_Dashboarding_Automation/data/park_visits.csv",
+  "source_authentication": "Anonymous",
+  "privacy_level": "Public",
+  "frequency": "Weekly",
+  "days": [
+    "Monday"
+  ],
+  "local_time": "08:00",
+  "timezone": "Australia/Darwin",
+  "utc_offset": "+09:30",
+  "failure_notifications": "Enable notification to semantic model owner",
+  "gateway": "Normally unnecessary for this public Web.Contents cloud source; confirm Service connectivity",
+  "sample_scope": "Fixed official-data snapshot; counts change only after reviewed CSV updates"
+}

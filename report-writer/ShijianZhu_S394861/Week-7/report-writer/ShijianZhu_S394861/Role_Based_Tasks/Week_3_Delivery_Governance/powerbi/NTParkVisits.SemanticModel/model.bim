@@ -1,0 +1,183 @@
+{
+  "name": "NTParkVisits",
+  "compatibilityLevel": 1567,
+  "model": {
+    "culture": "en-AU",
+    "sourceQueryCulture": "en-AU",
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "tables": [
+      {
+        "name": "Visits",
+        "columns": [
+          {
+            "name": "Year",
+            "dataType": "int64",
+            "sourceColumn": "Year",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "Region",
+            "dataType": "string",
+            "sourceColumn": "Region",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "Park",
+            "dataType": "string",
+            "sourceColumn": "Park",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "Visits",
+            "dataType": "int64",
+            "sourceColumn": "Visits",
+            "summarizeBy": "none",
+            "formatString": "#,0"
+          }
+        ],
+        "measures": [
+          {
+            "name": "Total Visits",
+            "expression": "SUM(Visits[Visits])",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Selected Year",
+            "expression": "MAX('Year'[Year])",
+            "formatString": "0"
+          },
+          {
+            "name": "Selected Year Visits",
+            "expression": "VAR Y = [Selected Year]\nRETURN CALCULATE([Total Visits], REMOVEFILTERS('Year'), 'Year'[Year] = Y)",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Previous Year Visits",
+            "expression": "VAR Y = [Selected Year]\nRETURN CALCULATE([Total Visits], REMOVEFILTERS('Year'), 'Year'[Year] = Y - 1)",
+            "formatString": "#,0"
+          },
+          {
+            "name": "YoY Change",
+            "expression": "DIVIDE([Selected Year Visits] - [Previous Year Visits], [Previous Year Visits])",
+            "formatString": "0.0%;-0.0%;0.0%"
+          },
+          {
+            "name": "Visit Change",
+            "expression": "IF(NOT ISBLANK([Previous Year Visits]), [Selected Year Visits] - [Previous Year Visits])",
+            "formatString": "+#,0;-#,0;0"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Visits",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Csv.Document(",
+                "        Web.Contents(\"https://raw.githubusercontent.com\", [RelativePath=\"regmicmahesh/PRT681_S2026_Team3/main/report-writer/ShijianZhu_S394861/Week6/report-writer/ShijianZhu_S394861/Role_Based_Tasks/Week_2_Dashboarding_Automation/data/park_visits.csv\", Timeout=#duration(0, 0, 2, 0)]),",
+                "        [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]",
+                "    ),",
+                "    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    Required = Table.SelectColumns(Headers, {\"Year\", \"Region\", \"Park\", \"Visits\"}, MissingField.Error),",
+                "    Typed = Table.TransformColumnTypes(Required, {{\"Year\", Int64.Type}, {\"Region\", type text}, {\"Park\", type text}, {\"Visits\", Int64.Type}}),",
+                "    Invalid = Table.SelectRows(Typed, each [Year] = null or [Visits] = null or [Visits] < 0 or [Park] = null or [Region] = null or Text.Trim([Park]) = \"\" or Text.Trim([Region]) = \"\"),",
+                "    Checked = if Table.RowCount(Typed) = 0 then error \"The source has no records.\"",
+                "        else if Table.RowCount(Invalid) > 0 then error \"Missing identifiers or invalid visit count.\"",
+                "        else if Table.RowCount(Table.Distinct(Typed, {\"Park\", \"Year\"})) <> Table.RowCount(Typed) then error \"Duplicate Park-Year records.\"",
+                "        else Typed",
+                "in",
+                "    Checked"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Year",
+        "columns": [
+          {
+            "name": "Year",
+            "dataType": "int64",
+            "sourceColumn": "Year",
+            "summarizeBy": "none",
+            "isKey": true,
+            "formatString": "0"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Year",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "Table.Sort(Table.Distinct(Table.SelectColumns(Visits, {\"Year\"})), {{\"Year\", Order.Ascending}})"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Park",
+        "columns": [
+          {
+            "name": "Park",
+            "dataType": "string",
+            "sourceColumn": "Park",
+            "summarizeBy": "none",
+            "isKey": true
+          },
+          {
+            "name": "Region",
+            "dataType": "string",
+            "sourceColumn": "Region",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Park",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "Table.Distinct(Table.SelectColumns(Visits, {\"Park\", \"Region\"}))"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "Visits_Year",
+        "fromTable": "Visits",
+        "fromColumn": "Year",
+        "toTable": "Year",
+        "toColumn": "Year",
+        "fromCardinality": "many",
+        "toCardinality": "one",
+        "crossFilteringBehavior": "oneDirection"
+      },
+      {
+        "name": "Visits_Park",
+        "fromTable": "Visits",
+        "fromColumn": "Park",
+        "toTable": "Park",
+        "toColumn": "Park",
+        "fromCardinality": "many",
+        "toCardinality": "one",
+        "crossFilteringBehavior": "oneDirection"
+      }
+    ]
+  }
+}
