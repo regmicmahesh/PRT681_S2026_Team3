@@ -1,0 +1,27 @@
+name: QA Practice (Miguel Badayos) - Selenium Test Automation
+
+on:
+    push:
+        branches: [main, "miguel/**"]
+        paths:
+            - "tester/MiguelBadayos_S365958/Week_8/practice/qa-tests/**"
+
+jobs:
+    selenium-tests:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Set up Python
+              uses: actions/setup-python@v5
+              with:
+                  python-version: "3.12"
+
+            - name: Install Chrome
+              uses: browser-actions/setup-chrome@v1
+
+            - name: Install dependencies
+              run: pip install -r tester/MiguelBadayos_S365958/Week_8/practice/qa-tests/requirements.txt
+
+            - name: Run Selenium tests
+              run: pytest tester/MiguelBadayos_S365958/Week_8/practice/qa-tests/test_login.py -v

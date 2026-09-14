@@ -6,6 +6,7 @@ for the SauceDemo login feature (TC01, TC03, TC06, TC08, TC13).
 import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 
@@ -14,8 +15,12 @@ LOGIN_URL = "https://www.saucedemo.com/"
 
 @pytest.fixture
 def driver():
+    options = Options()
+    options.add_argument("--headless=new")
+    options.add_argument("--window-size=1920,1080")
+    options.add_argument("--no-sandbox")
     service = Service(ChromeDriverManager().install())
-    drv = webdriver.Chrome(service=service)
+    drv = webdriver.Chrome(service=service, options=options)
     drv.get(LOGIN_URL)
     yield drv
     drv.quit()
