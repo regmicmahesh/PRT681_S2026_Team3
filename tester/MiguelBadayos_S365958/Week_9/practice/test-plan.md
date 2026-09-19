@@ -50,6 +50,8 @@ Save a screenshot of the Summary Report to your results folder, same pattern as 
 
 Refactors your existing `test_login.py` into a proper Page Object, then adds a Gherkin/behave layer on top of it, same underlying Selenium actions, described in plain language.
 
+> **Cucumber vs. behave:** the course lists "Cucumber," but Cucumber has no maintained Python binding (it's native to Java/Ruby/JS). `behave` is the direct Python equivalent — it reads the identical Gherkin `.feature` syntax, just with a Python-native runner, which fits an existing Python/Selenium/pytest suite without a rewrite. See `jmeter-and-bdd-notes.md` (Part 2 §3) for the full comparison.
+
 ### 1. Install behave
 
 ```bash
