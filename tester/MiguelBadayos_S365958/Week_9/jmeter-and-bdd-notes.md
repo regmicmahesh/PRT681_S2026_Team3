@@ -1,7 +1,5 @@
 # Week 4 Notes: Performance Testing (JMeter) & BDD Testing (Cucumber/Gherkin)
 
-_Note: the "Security & Vulnerability Testing Fundamentals (OWASP Top 10 / OWASP ZAP)" course listed for this week is already covered by the Extras work — see `bonus_security_testing_and_pentesting_notes.md` and `extras_security_testing_practice_plan.md`. No need to duplicate that here._
-
 ---
 
 ## PART 1: Performance & Load Testing with Apache JMeter

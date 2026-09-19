@@ -1,7 +1,5 @@
 # Week 4 Practice — JMeter Load Test + BDD/Page Object Model
 
-Two parts, roughly 2 hrs total. The OWASP/security practice from this week's course list is already done (see Extras) — not repeated here.
-
 ---
 
 ## Part A: JMeter 50-User Load Test (~45 min)
