@@ -4,8 +4,11 @@
 
 OWASP Juice Shop is a deliberately vulnerable e-commerce app, maintained by OWASP specifically for this kind of practice — legal and safe to attack because it's designed to be broken.
 
+Source cloned for reference to `~/documents/code/juice-shop` (kept out of this repo — third-party target app, not a deliverable). Run via the `docker-compose.yml` in `juice-shop/`, which pulls the official `bkimminich/juice-shop` image:
+
 ```bash
-docker run --rm -p 3000:3000 bkimminich/juice-shop
+cd extra-work/practice/juice-shop
+docker compose up -d
 ```
 
 Then open `http://localhost:3000` in your browser.
