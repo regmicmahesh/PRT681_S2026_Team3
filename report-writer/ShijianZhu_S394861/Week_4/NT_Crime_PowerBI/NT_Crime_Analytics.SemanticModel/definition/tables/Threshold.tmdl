@@ -1,0 +1,20 @@
+table Threshold
+	lineageTag: 86c99850-d9a9-42a6-986b-982eba07da6d
+
+	column Segment
+		dataType: string
+		lineageTag: 5bbdb996-0cfe-4d00-b776-ce9b8ce61f04
+		summarizeBy: none
+		sourceColumn: Segment
+
+	column 'Minimum Offences'
+		dataType: int64
+		formatString: #,##0
+		lineageTag: 9c2d2a64-3b1e-4fb9-9c4f-f195ea81af82
+		summarizeBy: none
+		sourceColumn: Minimum Offences
+
+	partition Threshold = m
+		mode: import
+		source = #table(type table [Segment = text, Minimum Offences = Int64.Type], {{"Low (100+)", 100}, {"Moderate (250+)", 250}, {"High (500+)", 500}, {"Critical (1,000+)", 1000}})
+

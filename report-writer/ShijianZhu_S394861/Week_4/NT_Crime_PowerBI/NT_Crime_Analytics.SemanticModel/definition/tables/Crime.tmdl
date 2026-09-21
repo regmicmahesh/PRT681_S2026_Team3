@@ -1,0 +1,227 @@
+table Crime
+	lineageTag: e1c5ce74-4a93-45f2-829d-da8126d97149
+
+	measure 'Total Offences' = SUM(Crime[Number of offences])
+		formatString: #,##0
+		lineageTag: 360abff6-7a19-40c1-b687-7f262cd8d89e
+
+	measure 'Monthly Average' = AVERAGEX(VALUES(Crime[Month Start]), [Total Offences])
+		formatString: #,##0
+		lineageTag: f25087a1-08f7-4774-9b12-a4b3c257b33e
+
+	measure 'Latest Month Offences' = VAR LatestMonth = MAX(Crime[Month Start]) RETURN CALCULATE([Total Offences], REMOVEFILTERS(Crime[Month Start], Crime[Year Month], Crime[Month Name]), TREATAS({LatestMonth}, Crime[Month Start]))
+		formatString: #,##0
+		lineageTag: 612088d7-758d-4dae-99a3-c3bf5a2cfa52
+
+	measure 'Previous Month Offences' = VAR LatestMonth = MAX(Crime[Month Start]) VAR PrevMonthDate = EDATE(LatestMonth, -1) RETURN CALCULATE([Total Offences], REMOVEFILTERS(Crime[Month Start], Crime[Year Month], Crime[Month Name]), TREATAS({PrevMonthDate}, Crime[Month Start]))
+		formatString: #,##0
+		lineageTag: e011fb73-e286-48ce-b7ca-7d1f2c79543d
+
+	measure 'MoM Change %' = DIVIDE([Latest Month Offences] - [Previous Month Offences], [Previous Month Offences])
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: f4ff92db-68e4-4c18-ab32-840458c1b380
+
+	measure 'YoY Change %' = VAR LatestMonth = MAX(Crime[Month Start]) VAR PriorMonth = EDATE(LatestMonth, -12) VAR LatestValue = CALCULATE([Total Offences], REMOVEFILTERS(Crime[Month Start], Crime[Year Month], Crime[Month Name]), TREATAS({LatestMonth}, Crime[Month Start])) VAR PriorValue = CALCULATE([Total Offences], REMOVEFILTERS(Crime[Month Start], Crime[Year Month], Crime[Month Name]), TREATAS({PriorMonth}, Crime[Month Start])) RETURN DIVIDE(LatestValue - PriorValue, PriorValue)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 6d6f3485-fa4f-4b95-a425-c3d549f33ffc
+
+	measure 'Domestic Violence Offences' = CALCULATE([Total Offences], Crime[DV involvement] = "Yes")
+		formatString: #,##0
+		lineageTag: 40a438e3-b90b-4d15-9b19-a8e22076ee0e
+
+	measure 'DV Share %' = DIVIDE([Domestic Violence Offences], [Total Offences])
+		formatString: 0.0%
+		lineageTag: 70df0092-86ba-420e-ab9a-74b8c0dd8ab0
+
+	measure 'Alcohol Related Offences' = CALCULATE([Total Offences], Crime[Alcohol involvement] = "Yes")
+		formatString: #,##0
+		lineageTag: 601f8e1d-4a17-4679-a249-aedc7a2b3243
+
+	measure 'Alcohol Share %' = DIVIDE([Alcohol Related Offences], [Total Offences])
+		formatString: 0.0%
+		lineageTag: 32fc21ce-ece6-437f-932d-8d819a59bc26
+
+	measure 'Distinct Offence Types' = DISTINCTCOUNT(Crime[Offence Type])
+		formatString: #,##0
+		lineageTag: 226f2eb6-e80a-4cfd-9053-6f71e92c4ecd
+
+	measure 'Region Count' = DISTINCTCOUNT(Crime[Reporting Region])
+		formatString: #,##0
+		lineageTag: 58cd634e-d1e4-4ee6-8d05-270a98e25ed9
+
+	measure 'Peak Monthly Offences' = MAXX(VALUES(Crime[Month Start]), [Total Offences])
+		formatString: #,##0
+		lineageTag: 9ef16cfa-0c58-4824-b96f-7dca2d9b9158
+
+	measure 'Data Months' = DISTINCTCOUNT(Crime[Month Start])
+		formatString: #,##0
+		lineageTag: 3cd6012f-d924-4890-8c50-589bbdb043c9
+
+	measure 'Rolling 3M Offences' = CALCULATE([Total Offences], DATESINPERIOD('Date'[Date], MAX('Date'[Date]), -3, MONTH))
+		formatString: #,##0
+		lineageTag: 7df8c91b-69f7-459e-8aff-f5216d943762
+
+	measure 'YTD Offences' = TOTALYTD([Total Offences], 'Date'[Date])
+		formatString: #,##0
+		lineageTag: 9f8e7141-10b5-4c72-9785-c064cb714c08
+
+	measure 'Previous Year Offences' = CALCULATE([Total Offences], SAMEPERIODLASTYEAR('Date'[Date]))
+		formatString: #,##0
+		lineageTag: 738e9ccc-ce79-4e12-b190-b2ef1f225bdd
+
+	measure 'Selected Threshold' = SELECTEDVALUE(Threshold[Minimum Offences], 250)
+		formatString: #,##0
+		lineageTag: ac7c3944-acb6-4f2e-b688-3440624a99a6
+
+	measure 'Spatial Offences' = VAR AreaName = SELECTEDVALUE(Geography[SA2 Name]) RETURN IF(ISINSCOPE(Geography[SA2 Name]) && ISBLANK(AreaName), BLANK(), [Total Offences])
+		formatString: #,##0
+		lineageTag: fbda3245-daa4-46bf-854c-dfe5c9f88913
+
+	measure 'Mapped SA2 Count' = COUNTROWS(FILTER(VALUES(Geography[SA2 Name]), NOT ISBLANK(Geography[SA2 Name]) && [Total Offences] > 0))
+		formatString: #,##0
+		lineageTag: c7dd9da1-789d-431e-97cd-b520ef671e02
+
+	measure 'SA2 Areas Above Threshold' = VAR Cutoff = [Selected Threshold] RETURN COUNTROWS(FILTER(VALUES(Geography[SA2 Name]), NOT ISBLANK(Geography[SA2 Name]) && [Total Offences] >= Cutoff))
+		formatString: #,##0
+		lineageTag: 4ca2bc47-f472-4bfe-ac6b-53e0075d50b6
+
+	measure 'Dynamic Risk Band' = VAR ValueNow = [Spatial Offences] RETURN SWITCH(TRUE(), ValueNow >= 2500, "Critical", ValueNow >= 1000, "High", ValueNow >= 500, "Moderate", ValueNow > 0, "Low", "No data")
+		lineageTag: 16ac3f36-0ebd-4c9e-8117-ab5e2d3eec1f
+
+	column 'Snapshot Date'
+		dataType: dateTime
+		formatString: d/MM/yyyy
+		lineageTag: 8bd31272-ea82-46d3-a98a-6da3dc51591e
+		summarizeBy: none
+		sourceColumn: Snapshot Date
+
+		variation Variation
+			isDefault
+			relationship: ea19470e-071c-42ee-a359-11960ce57e22
+			defaultHierarchy: LocalDateTable_bca41356-3ace-4abc-869e-49b917e6a724.'Date Hierarchy'
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: c22b026e-9fe9-4553-b22b-485f5a3e4df6
+		summarizeBy: sum
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Number'
+		dataType: int64
+		formatString: 0
+		lineageTag: b681eaff-3315-4266-b590-db4c9f1d8a19
+		summarizeBy: sum
+		sourceColumn: Month Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Start'
+		dataType: dateTime
+		formatString: MMM yyyy
+		lineageTag: f8368891-abd1-43cb-b529-ac94ff60916d
+		summarizeBy: none
+		sourceColumn: Month Start
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Year Month'
+		dataType: string
+		lineageTag: afdb944c-3630-46f8-a5eb-66e904f0efa6
+		summarizeBy: none
+		sourceColumn: Year Month
+		sortByColumn: 'Month Start'
+
+	column 'Month Name'
+		dataType: string
+		lineageTag: bbd13661-7e30-4560-8874-cdcb379670c5
+		summarizeBy: none
+		sourceColumn: Month Name
+		sortByColumn: 'Month Number'
+
+	column Quarter
+		dataType: string
+		lineageTag: 6e9cc297-f5e8-41d6-86a5-90f4d9498d0b
+		summarizeBy: none
+		sourceColumn: Quarter
+
+	column 'Offence Category'
+		dataType: string
+		lineageTag: 0a6cd6ad-964d-4421-ad1c-036117e28caf
+		summarizeBy: none
+		sourceColumn: Offence Category
+
+	column 'Offence Type'
+		dataType: string
+		lineageTag: 14563e37-f6fe-4240-97fe-c2de7a7166bb
+		summarizeBy: none
+		sourceColumn: Offence Type
+
+	column 'Alcohol involvement'
+		dataType: string
+		lineageTag: 6684506b-9619-419d-a8a6-8823727b300b
+		summarizeBy: none
+		sourceColumn: Alcohol involvement
+
+	column 'DV involvement'
+		dataType: string
+		lineageTag: 5f4011d5-6f2e-4f9e-9892-ee7f4d884e39
+		summarizeBy: none
+		sourceColumn: DV involvement
+
+	column 'Reporting Region'
+		dataType: string
+		lineageTag: 0c16fd8f-c423-4aca-8ecd-c718c61a8f27
+		summarizeBy: none
+		sourceColumn: Reporting Region
+
+	column 'Statistical Area 2'
+		dataType: string
+		lineageTag: 622bf8c9-932f-4bcb-9a74-9c70801a33c0
+		summarizeBy: none
+		sourceColumn: Statistical Area 2
+
+	column 'Risk Context'
+		dataType: string
+		lineageTag: dde11e6a-cb9b-43ce-b5ff-35a4c423a7db
+		summarizeBy: none
+		sourceColumn: Risk Context
+
+	column 'Number of offences'
+		dataType: int64
+		formatString: #,##0
+		lineageTag: b84d37cb-de3c-45b5-a1c3-ac9e3d35ba4a
+		summarizeBy: sum
+		sourceColumn: Number of offences
+
+	partition Crime = m
+		mode: import
+		source =
+				let
+					Source = Csv.Document(File.Contents("C:\Users\hulandaoke111\Documents\prt681\NT_Crime_PowerBI\data\nt_crime_statistics_june_2026.csv"), [Delimiter=",", Columns=10, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+					Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+					CleanColumnNames = Table.TransformColumnNames(Headers, each Text.Trim(_)),
+					Typed = Table.TransformColumnTypes(CleanColumnNames, {
+						{"As At", type date}, {"Year", Int64.Type}, {"Month number", Int64.Type},
+						{"Offence category", type text}, {"Offence type", type text},
+						{"Alcohol involvement", type text}, {"DV involvement", type text},
+						{"Reporting Region", type text}, {"Statistical Area 2", type text},
+						{"Number of offences", Int64.Type}
+					}, "en-AU"),
+					Renamed = Table.RenameColumns(Typed, {{"As At", "Snapshot Date"}, {"Month number", "Month Number"}}),
+					WithMonthStart = Table.AddColumn(Renamed, "Month Start", each #date([Year], [Month Number], 1), type date),
+					WithYearMonth = Table.AddColumn(WithMonthStart, "Year Month", each Date.ToText([Month Start], "yyyy-MM"), type text),
+					WithMonthName = Table.AddColumn(WithYearMonth, "Month Name", each Date.ToText([Month Start], "MMM", "en-AU"), type text),
+					WithQuarter = Table.AddColumn(WithMonthName, "Quarter", each "Q" & Text.From(Date.QuarterOfYear([Month Start])), type text),
+					WithCategory = Table.AddColumn(WithQuarter, "Offence Category", each try Text.Trim(Text.AfterDelimiter([Offence category], " ")) otherwise [Offence category], type text),
+					WithType = Table.AddColumn(WithCategory, "Offence Type", each try Text.Trim(Text.AfterDelimiter([Offence type], " ")) otherwise [Offence type], type text),
+					CleanSA2 = Table.TransformColumns(WithType, {{"Statistical Area 2", each if _ = null or Text.Trim(_) = "" then "Not specified" else Text.Trim(_), type text}}),
+					WithRisk = Table.AddColumn(CleanSA2, "Risk Context", each if [DV involvement] = "Yes" and [Alcohol involvement] = "Yes" then "DV + Alcohol" else if [DV involvement] = "Yes" then "DV only" else if [Alcohol involvement] = "Yes" then "Alcohol only" else "Neither / not recorded", type text),
+					Selected = Table.SelectColumns(WithRisk, {"Snapshot Date", "Year", "Month Number", "Month Start", "Year Month", "Month Name", "Quarter", "Offence Category", "Offence Type", "Alcohol involvement", "DV involvement", "Reporting Region", "Statistical Area 2", "Risk Context", "Number of offences"})
+				in
+					Selected
+

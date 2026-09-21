@@ -1,0 +1,15 @@
+{
+  "workspace_parameter": "<FABRIC_WORKSPACE>",
+  "lakehouse_parameter": "<LAKEHOUSE_NAME>",
+  "source_folder": "Files/week4",
+  "tables": [
+    "nt_crime_fact",
+    "nt_sa2_geography",
+    "nt_sa2_boundaries"
+  ],
+  "refresh_order": [
+    "Copy source files",
+    "Run ingestion notebook",
+    "Refresh Direct Lake semantic model"
+  ]
+}

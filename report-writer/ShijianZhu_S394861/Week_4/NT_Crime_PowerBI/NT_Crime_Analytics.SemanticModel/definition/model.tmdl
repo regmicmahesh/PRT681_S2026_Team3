@@ -1,0 +1,22 @@
+model Model
+	culture: en-AU
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-AU
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["Crime","Date","Geography","Threshold"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+ref table Crime
+ref table Date
+ref table Geography
+ref table Threshold
+ref table DateTableTemplate_9f8c6d23-62d1-40f2-85d5-c99350f70187
+ref table LocalDateTable_bca41356-3ace-4abc-869e-49b917e6a724
+ref table LocalDateTable_9131e664-82c9-4691-9d4f-0eff06628740
+

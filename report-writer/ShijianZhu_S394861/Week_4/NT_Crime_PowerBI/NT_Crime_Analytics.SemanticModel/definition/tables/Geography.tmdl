@@ -1,0 +1,72 @@
+table Geography
+	lineageTag: 27808bb8-0fe5-463d-a0a5-a2acc28e62e1
+
+	measure 'Average Latitude' = AVERAGE(Geography[Latitude])
+		formatString: 0.0000
+		lineageTag: 8664c550-dfae-490d-bcc7-dc940410f441
+
+	measure 'Average Longitude' = AVERAGE(Geography[Longitude])
+		formatString: 0.0000
+		lineageTag: 50f363d2-4b02-42f8-8890-38a0ac200ea9
+
+	column 'SA2 Code'
+		dataType: string
+		lineageTag: 29e9374d-4201-4ccd-a8d7-85dc07616e34
+		summarizeBy: none
+		sourceColumn: SA2 Code
+
+	column 'SA2 Name'
+		dataType: string
+		lineageTag: b946314f-3ab0-4df9-9e3b-1aa8f3911116
+		dataCategory: Place
+		summarizeBy: none
+		sourceColumn: SA2 Name
+
+	column 'SA3 Name'
+		dataType: string
+		lineageTag: 1072e075-5543-4939-9e47-7b168eaf3a9e
+		dataCategory: Place
+		summarizeBy: none
+		sourceColumn: SA3 Name
+
+	column 'Area sq km'
+		dataType: double
+		lineageTag: 93db18ea-a2be-428d-9077-871dbf9a6f02
+		sourceColumn: Area sq km
+
+	column State
+		dataType: string
+		lineageTag: 5dc571ed-a6e9-43df-b07c-b03f82677a42
+		dataCategory: StateOrProvince
+		summarizeBy: none
+		sourceColumn: State
+
+	column 'Map Location'
+		dataType: string
+		lineageTag: 83d5fbf2-2e64-4b0b-ad50-4a1ad7c5bb76
+		dataCategory: Place
+		summarizeBy: none
+		sourceColumn: Map Location
+
+	column Latitude
+		dataType: double
+		lineageTag: a79c6a8c-9d0c-4eb1-9e0b-69955a583715
+		dataCategory: Latitude
+		sourceColumn: Latitude
+
+	column Longitude
+		dataType: double
+		lineageTag: c6a747cc-9c02-4aeb-a628-81b7bb7c2f1b
+		dataCategory: Longitude
+		sourceColumn: Longitude
+
+	partition Geography = m
+		mode: import
+		source =
+				let
+					Source = Csv.Document(File.Contents("C:\Users\hulandaoke111\Documents\prt681\NT_Crime_PowerBI\week4_spatial\nt_sa2_centroids.csv"), [Delimiter=",", Columns=8, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+					Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+					Typed = Table.TransformColumnTypes(Headers, {{"SA2 Code", type text}, {"SA2 Name", type text}, {"SA3 Name", type text}, {"Area sq km", type number}, {"State", type text}, {"Map Location", type text}, {"Latitude", type number}, {"Longitude", type number}}, "en-AU")
+				in
+					Typed
+

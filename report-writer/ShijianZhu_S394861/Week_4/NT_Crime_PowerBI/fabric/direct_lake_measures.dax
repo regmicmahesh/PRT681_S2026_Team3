@@ -1,0 +1,7 @@
+Total Offences = SUM(nt_crime_fact[Number of offences])
+Previous Month Offences = CALCULATE([Total Offences], DATEADD('Date'[Date], -1, MONTH))
+MoM Change % = DIVIDE([Total Offences] - [Previous Month Offences], [Previous Month Offences])
+Previous Year Offences = CALCULATE([Total Offences], SAMEPERIODLASTYEAR('Date'[Date]))
+YoY Change % = DIVIDE([Total Offences] - [Previous Year Offences], [Previous Year Offences])
+Rolling 3M Offences = CALCULATE([Total Offences], DATESINPERIOD('Date'[Date], MAX('Date'[Date]), -3, MONTH))
+YTD Offences = TOTALYTD([Total Offences], 'Date'[Date])

@@ -1,0 +1,19 @@
+relationship 63cb1337-8fe7-42ea-9f0c-eab530a3ec13
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Crime.'Month Start'
+	toColumn: Date.Date
+
+relationship 906e26fb-9319-455a-a6cd-97d2d7d85cdf
+	fromColumn: Crime.'Statistical Area 2'
+	toColumn: Geography.'SA2 Name'
+
+relationship ea19470e-071c-42ee-a359-11960ce57e22
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Crime.'Snapshot Date'
+	toColumn: LocalDateTable_bca41356-3ace-4abc-869e-49b917e6a724.Date
+
+relationship dbe51dcf-7416-4794-b98b-86cc19c9c798
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Date.Date
+	toColumn: LocalDateTable_9131e664-82c9-4691-9d4f-0eff06628740.Date
+

@@ -1,0 +1,70 @@
+table Date
+	lineageTag: ee03fbcd-dd69-40fe-99ea-2f84016eee47
+
+	column Date
+		dataType: dateTime
+		formatString: d MMM yyyy
+		lineageTag: 2b0f9846-6e89-4070-a824-a61ee9d81e44
+		summarizeBy: none
+		sourceColumn: Date
+
+		variation Variation
+			isDefault
+			relationship: dbe51dcf-7416-4794-b98b-86cc19c9c798
+			defaultHierarchy: LocalDateTable_9131e664-82c9-4691-9d4f-0eff06628740.'Date Hierarchy'
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: 0e4ff98a-1fcf-426b-92f3-f8acde25551d
+		summarizeBy: sum
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Number'
+		dataType: int64
+		lineageTag: ec1b7b28-49ea-40dc-9b7b-47d0e6d20bb2
+		summarizeBy: sum
+		sourceColumn: Month Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Name'
+		dataType: string
+		lineageTag: dceabfdf-ad80-49c3-9da9-0fcc191d3bd3
+		summarizeBy: none
+		sourceColumn: Month Name
+		sortByColumn: 'Month Number'
+
+	column 'Year Month'
+		dataType: string
+		lineageTag: 99c48724-da1e-45d2-bfae-f746650f0095
+		summarizeBy: none
+		sourceColumn: Year Month
+
+	column Quarter
+		dataType: string
+		lineageTag: db84c458-1625-4627-a4f3-073d16316c6e
+		summarizeBy: none
+		sourceColumn: Quarter
+
+	partition Date = m
+		mode: import
+		source =
+				let
+					StartDate = #date(2023, 12, 1),
+					EndDate = #date(2026, 6, 30),
+					Dates = List.Dates(StartDate, Duration.Days(EndDate - StartDate) + 1, #duration(1, 0, 0, 0)),
+					Base = Table.FromList(Dates, Splitter.SplitByNothing(), {"Date"}),
+					Typed = Table.TransformColumnTypes(Base, {{"Date", type date}}),
+					WithYear = Table.AddColumn(Typed, "Year", each Date.Year([Date]), Int64.Type),
+					WithMonthNumber = Table.AddColumn(WithYear, "Month Number", each Date.Month([Date]), Int64.Type),
+					WithMonthName = Table.AddColumn(WithMonthNumber, "Month Name", each Date.ToText([Date], "MMM", "en-AU"), type text),
+					WithYearMonth = Table.AddColumn(WithMonthName, "Year Month", each Date.ToText([Date], "yyyy-MM"), type text),
+					WithQuarter = Table.AddColumn(WithYearMonth, "Quarter", each "Q" & Text.From(Date.QuarterOfYear([Date])), type text)
+				in
+					WithQuarter
+
