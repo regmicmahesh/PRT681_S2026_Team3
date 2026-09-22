@@ -18,7 +18,7 @@ This week's focus was career preparation and foundational research, followed by 
 - `Spatial_Data_Research_Notes_YuanLi_S390310.md` — spatial data concepts research
 - `Interview_QA_YuanLi_S390310.docx` — technical + behavioural interview Q&A
 - `Resume_YuanLi_S390310.docx` — updated resume
-- `geographic_dashboard.png` — screenshot of the Geographic Overview dashboard page
+- `report writer-week4 practice.png` — screenshot of the Geographic Overview dashboard page
 - `anonymization_and_dax.md` — Power Query M anonymization code and time-intelligence DAX measures
 
 ## Next steps
