@@ -39,7 +39,7 @@ def get_error_text(driver):
 # TC01 — Functional: valid login succeeds
 def test_valid_login(driver):
     login(driver, "standard_user", "secret_sauce")
-    assert "wrong-page" in driver.current_url
+    assert "inventory" in driver.current_url
 
 
 # TC03 — Functional: locked-out account is blocked
