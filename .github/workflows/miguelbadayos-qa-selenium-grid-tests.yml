@@ -1,0 +1,46 @@
+name: QA Practice (Miguel Badayos) - Selenium Grid Tests
+
+on:
+    push:
+        branches: [main, "miguel/**"]
+        paths:
+            - "tester/MiguelBadayos_S365958/Week_10/practice/qa-tests/**"
+
+jobs:
+    selenium-grid-tests:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Set up Python
+              uses: actions/setup-python@v5
+              with:
+                  python-version: "3.12"
+
+            - name: Start Selenium Grid
+              working-directory: tester/MiguelBadayos_S365958/Week_10/practice/qa-tests
+              run: docker compose -f docker-compose.grid.yml up -d
+
+            - name: Wait for Grid to be ready
+              run: |
+                  for i in $(seq 1 30); do
+                    if curl -sf http://localhost:4444/status | grep -q '"ready": *true'; then
+                      echo "Grid is ready"
+                      exit 0
+                    fi
+                    echo "Waiting for grid..."
+                    sleep 2
+                  done
+                  echo "Grid did not become ready in time"
+                  exit 1
+
+            - name: Install dependencies
+              run: pip install -r tester/MiguelBadayos_S365958/Week_10/practice/qa-tests/requirements.txt
+
+            - name: Run Selenium Grid tests
+              run: pytest tester/MiguelBadayos_S365958/Week_10/practice/qa-tests/test_login.py -v
+
+            - name: Stop Selenium Grid
+              if: always()
+              working-directory: tester/MiguelBadayos_S365958/Week_10/practice/qa-tests
+              run: docker compose -f docker-compose.grid.yml down
