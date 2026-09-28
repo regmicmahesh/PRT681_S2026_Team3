@@ -1,0 +1,16 @@
+UserEmail,ReportingRegion,AccessType,Status
+S394861@students.cdu.edu.au,Alice Springs,All-territory test access,Test owner
+S394861@students.cdu.edu.au,Darwin,All-territory test access,Test owner
+S394861@students.cdu.edu.au,Katherine,All-territory test access,Test owner
+S394861@students.cdu.edu.au,NT Balance,All-territory test access,Test owner
+S394861@students.cdu.edu.au,Nhulunbuy,All-territory test access,Test owner
+S394861@students.cdu.edu.au,Palmerston,All-territory test access,Test owner
+S394861@students.cdu.edu.au,Tennant Creek,All-territory test access,Test owner
+S394861@students.cdu.edu.au,Unknown,All-territory test access,Test owner
+alice.springs.manager@example.com,Alice Springs,Regional manager,Replace before deployment
+darwin.manager@example.com,Darwin,Regional manager,Replace before deployment
+katherine.manager@example.com,Katherine,Regional manager,Replace before deployment
+nt.balance.manager@example.com,NT Balance,Regional manager,Replace before deployment
+nhulunbuy.manager@example.com,Nhulunbuy,Regional manager,Replace before deployment
+palmerston.manager@example.com,Palmerston,Regional manager,Replace before deployment
+tennant.creek.manager@example.com,Tennant Creek,Regional manager,Replace before deployment

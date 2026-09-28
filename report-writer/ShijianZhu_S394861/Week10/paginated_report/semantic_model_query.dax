@@ -1,0 +1,30 @@
+EVALUATE
+SELECTCOLUMNS(
+    SUMMARIZECOLUMNS(
+        'Crime'[Month Start],
+        'Crime'[Reporting Region],
+        'Crime'[Offence Category],
+        "TotalOffences", [Total Offences],
+        "DVOffences", [Domestic Violence Offences],
+        "AlcoholOffences", [Alcohol Related Offences],
+        "MissingSA2Offences",
+            CALCULATE(
+                [Total Offences],
+                FILTER(
+                    'Crime',
+                    ISBLANK('Crime'[Statistical Area 2])
+                        || 'Crime'[Statistical Area 2] IN { "Not specified", "Unknown" }
+                )
+            ),
+        "SourceRows", COUNTROWS('Crime')
+    ),
+    "ReportMonth", FORMAT('Crime'[Month Start], "yyyy-MM"),
+    "ReportingRegion", 'Crime'[Reporting Region],
+    "OffenceCategory", 'Crime'[Offence Category],
+    "TotalOffences", [TotalOffences],
+    "DVOffences", [DVOffences],
+    "AlcoholOffences", [AlcoholOffences],
+    "MissingSA2Offences", [MissingSA2Offences],
+    "SourceRows", [SourceRows]
+)
+ORDER BY [ReportMonth], [ReportingRegion], [TotalOffences] DESC

@@ -28,7 +28,6 @@ Not new gating logic — pytest's non-zero exit code already fails the CI step. 
 
 ## results
 
-Local run confirmed 10 passed (5 test cases × 2 browsers) before any of this was pushed.
-
+![Local Grid run — 10 passed (5 test cases × 2 browsers)](results/results-local-run.png)
 ![CI — red build after deliberate regression (commit 00aab5e)](results/results-fail.png)
 ![CI — green again after revert (commit 41961d3)](results/results-success.png)

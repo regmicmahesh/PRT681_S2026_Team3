@@ -1,0 +1,36 @@
+table 'RLS Territory Access'
+
+    column UserEmail
+        dataType: string
+        summarizeBy: none
+        sourceColumn: [UserEmail]
+
+    column 'Reporting Region'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: [Reporting Region]
+
+    partition 'RLS Territory Access' = calculated
+        mode: import
+        source =
+            DATATABLE(
+                "UserEmail", STRING,
+                "Reporting Region", STRING,
+                {
+        { "S394861@students.cdu.edu.au", "Alice Springs" },
+        { "S394861@students.cdu.edu.au", "Darwin" },
+        { "S394861@students.cdu.edu.au", "Katherine" },
+        { "S394861@students.cdu.edu.au", "NT Balance" },
+        { "S394861@students.cdu.edu.au", "Nhulunbuy" },
+        { "S394861@students.cdu.edu.au", "Palmerston" },
+        { "S394861@students.cdu.edu.au", "Tennant Creek" },
+        { "S394861@students.cdu.edu.au", "Unknown" },
+        { "alice.springs.manager@example.com", "Alice Springs" },
+        { "darwin.manager@example.com", "Darwin" },
+        { "katherine.manager@example.com", "Katherine" },
+        { "nt.balance.manager@example.com", "NT Balance" },
+        { "nhulunbuy.manager@example.com", "Nhulunbuy" },
+        { "palmerston.manager@example.com", "Palmerston" },
+        { "tennant.creek.manager@example.com", "Tennant Creek" }
+                }
+            )

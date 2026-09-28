@@ -1,0 +1,656 @@
+ReportMonth,ReportingRegion,OffenceCategory,TotalOffences,DVOffences,AlcoholOffences,MissingSA2Offences,SourceRows
+2025-07,Alice Springs,Assault,143,96,80,143,11
+2025-07,Alice Springs,Burglary - dwelling,131,0,0,131,2
+2025-07,Alice Springs,Burglary - non-residential,18,0,0,18,2
+2025-07,Alice Springs,Harm or endanger persons,17,0,0,17,2
+2025-07,Alice Springs,Property damage offences,249,0,0,249,1
+2025-07,Alice Springs,"Robbery, blackmail, and extortion",4,0,0,4,1
+2025-07,Alice Springs,Sexual offences,12,0,0,12,3
+2025-07,Alice Springs,Theft,147,0,0,147,2
+2025-07,Darwin,Assault,215,106,106,215,11
+2025-07,Darwin,Burglary - dwelling,34,0,0,34,2
+2025-07,Darwin,Burglary - non-residential,9,0,0,9,2
+2025-07,Darwin,Harm or endanger persons,34,0,0,34,2
+2025-07,Darwin,Property damage offences,196,0,0,196,1
+2025-07,Darwin,"Robbery, blackmail, and extortion",13,0,0,13,2
+2025-07,Darwin,Sexual offences,24,0,0,24,3
+2025-07,Darwin,Theft,200,0,0,200,2
+2025-07,Katherine,Assault,65,45,41,65,11
+2025-07,Katherine,Burglary - dwelling,29,0,0,29,2
+2025-07,Katherine,Burglary - non-residential,16,0,0,16,2
+2025-07,Katherine,Harm or endanger persons,10,0,0,10,2
+2025-07,Katherine,Property damage offences,54,0,0,54,1
+2025-07,Katherine,"Robbery, blackmail, and extortion",6,0,0,6,1
+2025-07,Katherine,Sexual offences,5,0,0,5,2
+2025-07,Katherine,Theft,35,0,0,35,2
+2025-07,Nhulunbuy,Assault,3,2,2,3,2
+2025-07,Nhulunbuy,Burglary - dwelling,1,0,0,1,1
+2025-07,Nhulunbuy,Property damage offences,4,0,0,4,1
+2025-07,Nhulunbuy,Theft,5,0,0,5,1
+2025-07,NT Balance,Assault,247,169,65,9,77
+2025-07,NT Balance,Burglary - dwelling,27,0,0,2,13
+2025-07,NT Balance,Burglary - non-residential,24,0,0,1,12
+2025-07,NT Balance,Harm or endanger persons,34,0,0,2,19
+2025-07,NT Balance,Homicide,1,0,0,0,1
+2025-07,NT Balance,Property damage offences,94,0,0,22,19
+2025-07,NT Balance,"Robbery, blackmail, and extortion",3,0,0,1,3
+2025-07,NT Balance,Sexual offences,18,0,0,4,14
+2025-07,NT Balance,Theft,83,0,0,12,25
+2025-07,Palmerston,Assault,89,60,57,89,8
+2025-07,Palmerston,Burglary - dwelling,12,0,0,12,2
+2025-07,Palmerston,Burglary - non-residential,5,0,0,5,2
+2025-07,Palmerston,Harm or endanger persons,11,0,0,11,3
+2025-07,Palmerston,Property damage offences,62,0,0,62,1
+2025-07,Palmerston,"Robbery, blackmail, and extortion",2,0,0,2,1
+2025-07,Palmerston,Sexual offences,8,0,0,8,2
+2025-07,Palmerston,Theft,76,0,0,76,2
+2025-07,Tennant Creek,Assault,55,45,43,55,11
+2025-07,Tennant Creek,Burglary - dwelling,6,0,0,6,1
+2025-07,Tennant Creek,Burglary - non-residential,5,0,0,5,1
+2025-07,Tennant Creek,Harm or endanger persons,4,0,0,4,2
+2025-07,Tennant Creek,Property damage offences,28,0,0,28,1
+2025-07,Tennant Creek,Sexual offences,1,0,0,1,1
+2025-07,Tennant Creek,Theft,12,0,0,12,2
+2025-08,Alice Springs,Assault,132,100,70,132,10
+2025-08,Alice Springs,Burglary - dwelling,68,0,0,68,2
+2025-08,Alice Springs,Burglary - non-residential,16,0,0,16,2
+2025-08,Alice Springs,Harm or endanger persons,11,0,0,11,3
+2025-08,Alice Springs,Property damage offences,172,0,0,172,1
+2025-08,Alice Springs,"Robbery, blackmail, and extortion",9,0,0,9,1
+2025-08,Alice Springs,Sexual offences,3,0,0,3,2
+2025-08,Alice Springs,Theft,106,0,0,106,2
+2025-08,Darwin,Assault,173,100,81,173,11
+2025-08,Darwin,Burglary - dwelling,21,0,0,21,2
+2025-08,Darwin,Burglary - non-residential,9,0,0,9,1
+2025-08,Darwin,Harm or endanger persons,18,0,0,18,3
+2025-08,Darwin,Property damage offences,162,0,0,162,1
+2025-08,Darwin,"Robbery, blackmail, and extortion",9,0,0,9,1
+2025-08,Darwin,Sexual offences,16,0,0,16,3
+2025-08,Darwin,Theft,182,0,0,182,2
+2025-08,Katherine,Assault,95,67,61,95,8
+2025-08,Katherine,Burglary - dwelling,29,0,0,29,2
+2025-08,Katherine,Burglary - non-residential,10,0,0,10,2
+2025-08,Katherine,Harm or endanger persons,17,0,0,17,4
+2025-08,Katherine,Homicide,1,0,0,1,1
+2025-08,Katherine,Property damage offences,53,0,0,53,1
+2025-08,Katherine,Sexual offences,4,0,0,4,2
+2025-08,Katherine,Theft,25,0,0,25,2
+2025-08,Nhulunbuy,Assault,6,6,2,6,3
+2025-08,Nhulunbuy,Burglary - dwelling,2,0,0,2,1
+2025-08,Nhulunbuy,Burglary - non-residential,1,0,0,1,1
+2025-08,Nhulunbuy,Property damage offences,1,0,0,1,1
+2025-08,Nhulunbuy,Theft,1,0,0,1,1
+2025-08,NT Balance,Assault,247,184,83,10,81
+2025-08,NT Balance,Burglary - dwelling,26,0,0,2,13
+2025-08,NT Balance,Burglary - non-residential,17,0,0,2,11
+2025-08,NT Balance,Harm or endanger persons,35,0,0,2,21
+2025-08,NT Balance,Property damage offences,116,0,0,11,20
+2025-08,NT Balance,"Robbery, blackmail, and extortion",1,0,0,1,1
+2025-08,NT Balance,Sexual offences,13,0,0,2,11
+2025-08,NT Balance,Theft,101,0,0,8,22
+2025-08,Palmerston,Assault,78,61,50,78,10
+2025-08,Palmerston,Burglary - dwelling,20,0,0,20,2
+2025-08,Palmerston,Burglary - non-residential,6,0,0,6,2
+2025-08,Palmerston,Harm or endanger persons,10,0,0,10,2
+2025-08,Palmerston,Property damage offences,79,0,0,79,1
+2025-08,Palmerston,"Robbery, blackmail, and extortion",4,0,0,4,1
+2025-08,Palmerston,Sexual offences,13,0,0,13,2
+2025-08,Palmerston,Theft,85,0,0,85,2
+2025-08,Tennant Creek,Assault,57,40,34,57,8
+2025-08,Tennant Creek,Burglary - dwelling,1,0,0,1,1
+2025-08,Tennant Creek,Burglary - non-residential,7,0,0,7,1
+2025-08,Tennant Creek,Harm or endanger persons,2,0,0,2,2
+2025-08,Tennant Creek,Property damage offences,31,0,0,31,1
+2025-08,Tennant Creek,"Robbery, blackmail, and extortion",4,0,0,4,1
+2025-08,Tennant Creek,Theft,18,0,0,18,2
+2025-08,Unknown,Assault,2,2,2,2,1
+2025-09,Alice Springs,Assault,139,97,65,139,11
+2025-09,Alice Springs,Burglary - dwelling,59,0,0,59,2
+2025-09,Alice Springs,Burglary - non-residential,21,0,0,21,2
+2025-09,Alice Springs,Harm or endanger persons,15,0,0,15,2
+2025-09,Alice Springs,Property damage offences,153,0,0,153,1
+2025-09,Alice Springs,"Robbery, blackmail, and extortion",10,0,0,10,1
+2025-09,Alice Springs,Sexual offences,10,0,0,10,3
+2025-09,Alice Springs,Theft,104,0,0,104,2
+2025-09,Darwin,Assault,188,105,89,188,10
+2025-09,Darwin,Burglary - dwelling,17,0,0,17,2
+2025-09,Darwin,Burglary - non-residential,13,0,0,13,1
+2025-09,Darwin,Harm or endanger persons,22,0,0,22,4
+2025-09,Darwin,Homicide,1,0,0,1,1
+2025-09,Darwin,Property damage offences,161,0,0,161,1
+2025-09,Darwin,"Robbery, blackmail, and extortion",13,0,0,13,1
+2025-09,Darwin,Sexual offences,22,0,0,22,3
+2025-09,Darwin,Theft,250,0,0,250,2
+2025-09,Katherine,Assault,113,67,53,113,9
+2025-09,Katherine,Burglary - dwelling,10,0,0,10,2
+2025-09,Katherine,Burglary - non-residential,13,0,0,13,2
+2025-09,Katherine,Harm or endanger persons,7,0,0,7,3
+2025-09,Katherine,Property damage offences,58,0,0,58,1
+2025-09,Katherine,"Robbery, blackmail, and extortion",5,0,0,5,1
+2025-09,Katherine,Sexual offences,5,0,0,5,2
+2025-09,Katherine,Theft,17,0,0,17,2
+2025-09,Nhulunbuy,Assault,4,1,2,4,4
+2025-09,Nhulunbuy,Burglary - dwelling,3,0,0,3,2
+2025-09,Nhulunbuy,Property damage offences,4,0,0,4,1
+2025-09,Nhulunbuy,Theft,2,0,0,2,1
+2025-09,NT Balance,Assault,289,198,79,17,87
+2025-09,NT Balance,Burglary - dwelling,33,0,0,3,17
+2025-09,NT Balance,Burglary - non-residential,37,0,0,2,19
+2025-09,NT Balance,Harm or endanger persons,33,0,0,2,20
+2025-09,NT Balance,Property damage offences,121,0,0,13,20
+2025-09,NT Balance,"Robbery, blackmail, and extortion",4,0,0,2,2
+2025-09,NT Balance,Sexual offences,12,0,0,0,8
+2025-09,NT Balance,Theft,121,0,0,12,25
+2025-09,Palmerston,Assault,113,82,58,113,10
+2025-09,Palmerston,Burglary - dwelling,7,0,0,7,1
+2025-09,Palmerston,Burglary - non-residential,5,0,0,5,2
+2025-09,Palmerston,Harm or endanger persons,15,0,0,15,3
+2025-09,Palmerston,Homicide,1,0,0,1,1
+2025-09,Palmerston,Property damage offences,59,0,0,59,1
+2025-09,Palmerston,"Robbery, blackmail, and extortion",1,0,0,1,1
+2025-09,Palmerston,Sexual offences,6,0,0,6,3
+2025-09,Palmerston,Theft,83,0,0,83,2
+2025-09,Tennant Creek,Assault,53,37,29,53,7
+2025-09,Tennant Creek,Burglary - dwelling,9,0,0,9,2
+2025-09,Tennant Creek,Burglary - non-residential,10,0,0,10,1
+2025-09,Tennant Creek,Harm or endanger persons,1,0,0,1,1
+2025-09,Tennant Creek,Property damage offences,56,0,0,56,1
+2025-09,Tennant Creek,"Robbery, blackmail, and extortion",2,0,0,2,1
+2025-09,Tennant Creek,Sexual offences,2,0,0,2,1
+2025-09,Tennant Creek,Theft,25,0,0,25,2
+2025-09,Unknown,Assault,1,1,1,1,1
+2025-10,Alice Springs,Assault,172,121,89,172,11
+2025-10,Alice Springs,Burglary - dwelling,44,0,0,44,2
+2025-10,Alice Springs,Burglary - non-residential,12,0,0,12,2
+2025-10,Alice Springs,Harm or endanger persons,21,0,0,21,3
+2025-10,Alice Springs,Property damage offences,187,0,0,187,1
+2025-10,Alice Springs,"Robbery, blackmail, and extortion",4,0,0,4,1
+2025-10,Alice Springs,Sexual offences,7,0,0,7,3
+2025-10,Alice Springs,Theft,99,0,0,99,2
+2025-10,Darwin,Assault,183,95,88,183,10
+2025-10,Darwin,Burglary - dwelling,15,0,0,15,2
+2025-10,Darwin,Burglary - non-residential,12,0,0,12,2
+2025-10,Darwin,Harm or endanger persons,28,0,0,28,4
+2025-10,Darwin,Property damage offences,140,0,0,140,1
+2025-10,Darwin,"Robbery, blackmail, and extortion",13,0,0,13,1
+2025-10,Darwin,Sexual offences,17,0,0,17,4
+2025-10,Darwin,Theft,203,0,0,203,2
+2025-10,Katherine,Assault,102,81,63,102,10
+2025-10,Katherine,Burglary - dwelling,15,0,0,15,2
+2025-10,Katherine,Burglary - non-residential,10,0,0,10,2
+2025-10,Katherine,Harm or endanger persons,8,0,0,8,3
+2025-10,Katherine,Property damage offences,50,0,0,50,1
+2025-10,Katherine,"Robbery, blackmail, and extortion",2,0,0,2,1
+2025-10,Katherine,Sexual offences,10,0,0,10,4
+2025-10,Katherine,Theft,33,0,0,33,2
+2025-10,Nhulunbuy,Assault,11,7,7,11,7
+2025-10,Nhulunbuy,Burglary - dwelling,6,0,0,6,1
+2025-10,Nhulunbuy,Burglary - non-residential,3,0,0,3,2
+2025-10,Nhulunbuy,Harm or endanger persons,1,0,0,1,1
+2025-10,Nhulunbuy,Property damage offences,7,0,0,7,1
+2025-10,Nhulunbuy,Theft,10,0,0,10,1
+2025-10,NT Balance,Assault,359,235,84,11,95
+2025-10,NT Balance,Burglary - dwelling,43,0,0,0,22
+2025-10,NT Balance,Burglary - non-residential,34,0,0,3,15
+2025-10,NT Balance,Harm or endanger persons,39,0,0,3,20
+2025-10,NT Balance,Homicide,3,0,0,0,2
+2025-10,NT Balance,Property damage offences,166,0,0,24,19
+2025-10,NT Balance,"Robbery, blackmail, and extortion",3,0,0,0,2
+2025-10,NT Balance,Sexual offences,13,0,0,2,11
+2025-10,NT Balance,Theft,98,0,0,13,24
+2025-10,Palmerston,Assault,106,80,58,106,9
+2025-10,Palmerston,Burglary - dwelling,14,0,0,14,2
+2025-10,Palmerston,Burglary - non-residential,6,0,0,6,2
+2025-10,Palmerston,Harm or endanger persons,7,0,0,7,1
+2025-10,Palmerston,Property damage offences,91,0,0,91,1
+2025-10,Palmerston,"Robbery, blackmail, and extortion",1,0,0,1,1
+2025-10,Palmerston,Sexual offences,5,0,0,5,3
+2025-10,Palmerston,Theft,87,0,0,87,2
+2025-10,Tennant Creek,Assault,43,35,29,43,7
+2025-10,Tennant Creek,Burglary - dwelling,17,0,0,17,2
+2025-10,Tennant Creek,Burglary - non-residential,6,0,0,6,1
+2025-10,Tennant Creek,Harm or endanger persons,2,0,0,2,2
+2025-10,Tennant Creek,Property damage offences,39,0,0,39,1
+2025-10,Tennant Creek,"Robbery, blackmail, and extortion",4,0,0,4,1
+2025-10,Tennant Creek,Theft,21,0,0,21,2
+2025-10,Unknown,Theft,1,0,0,1,1
+2025-11,Alice Springs,Assault,181,127,94,181,11
+2025-11,Alice Springs,Burglary - dwelling,55,0,0,55,2
+2025-11,Alice Springs,Burglary - non-residential,11,0,0,11,2
+2025-11,Alice Springs,Harm or endanger persons,21,0,0,21,3
+2025-11,Alice Springs,Property damage offences,195,0,0,195,1
+2025-11,Alice Springs,"Robbery, blackmail, and extortion",10,0,0,10,2
+2025-11,Alice Springs,Sexual offences,6,0,0,6,3
+2025-11,Alice Springs,Theft,115,0,0,115,2
+2025-11,Darwin,Assault,154,89,78,154,9
+2025-11,Darwin,Burglary - dwelling,34,0,0,34,2
+2025-11,Darwin,Burglary - non-residential,7,0,0,7,2
+2025-11,Darwin,Harm or endanger persons,23,0,0,23,3
+2025-11,Darwin,Property damage offences,145,0,0,145,1
+2025-11,Darwin,"Robbery, blackmail, and extortion",13,0,0,13,1
+2025-11,Darwin,Sexual offences,14,0,0,14,4
+2025-11,Darwin,Theft,205,0,0,205,2
+2025-11,Katherine,Assault,94,70,35,94,8
+2025-11,Katherine,Burglary - dwelling,12,0,0,12,2
+2025-11,Katherine,Burglary - non-residential,5,0,0,5,2
+2025-11,Katherine,Harm or endanger persons,12,0,0,12,3
+2025-11,Katherine,Property damage offences,40,0,0,40,1
+2025-11,Katherine,"Robbery, blackmail, and extortion",5,0,0,5,1
+2025-11,Katherine,Sexual offences,4,0,0,4,2
+2025-11,Katherine,Theft,32,0,0,32,2
+2025-11,Nhulunbuy,Assault,6,4,4,6,4
+2025-11,Nhulunbuy,Burglary - dwelling,5,0,0,5,1
+2025-11,Nhulunbuy,Burglary - non-residential,2,0,0,2,1
+2025-11,Nhulunbuy,Harm or endanger persons,1,0,0,1,1
+2025-11,Nhulunbuy,Property damage offences,5,0,0,5,1
+2025-11,Nhulunbuy,Sexual offences,2,0,0,2,1
+2025-11,Nhulunbuy,Theft,3,0,0,3,1
+2025-11,NT Balance,Assault,300,211,82,10,87
+2025-11,NT Balance,Burglary - dwelling,44,0,0,2,19
+2025-11,NT Balance,Burglary - non-residential,31,0,0,2,16
+2025-11,NT Balance,Harm or endanger persons,35,0,0,1,20
+2025-11,NT Balance,Homicide,1,0,0,0,1
+2025-11,NT Balance,Property damage offences,145,0,0,15,20
+2025-11,NT Balance,"Robbery, blackmail, and extortion",3,0,0,0,2
+2025-11,NT Balance,Sexual offences,20,0,0,2,12
+2025-11,NT Balance,Theft,87,0,0,16,23
+2025-11,Palmerston,Assault,89,58,47,89,10
+2025-11,Palmerston,Burglary - dwelling,9,0,0,9,2
+2025-11,Palmerston,Burglary - non-residential,10,0,0,10,2
+2025-11,Palmerston,Harm or endanger persons,7,0,0,7,2
+2025-11,Palmerston,Property damage offences,82,0,0,82,1
+2025-11,Palmerston,"Robbery, blackmail, and extortion",5,0,0,5,1
+2025-11,Palmerston,Sexual offences,4,0,0,4,2
+2025-11,Palmerston,Theft,91,0,0,91,2
+2025-11,Tennant Creek,Assault,34,26,23,34,7
+2025-11,Tennant Creek,Burglary - dwelling,16,0,0,16,2
+2025-11,Tennant Creek,Burglary - non-residential,2,0,0,2,1
+2025-11,Tennant Creek,Property damage offences,32,0,0,32,1
+2025-11,Tennant Creek,Sexual offences,2,0,0,2,2
+2025-11,Tennant Creek,Theft,31,0,0,31,2
+2025-12,Alice Springs,Assault,169,107,101,169,11
+2025-12,Alice Springs,Burglary - dwelling,31,0,0,31,2
+2025-12,Alice Springs,Burglary - non-residential,13,0,0,13,1
+2025-12,Alice Springs,Harm or endanger persons,23,0,0,23,3
+2025-12,Alice Springs,Property damage offences,161,0,0,161,1
+2025-12,Alice Springs,"Robbery, blackmail, and extortion",3,0,0,3,1
+2025-12,Alice Springs,Sexual offences,6,0,0,6,2
+2025-12,Alice Springs,Theft,115,0,0,115,2
+2025-12,Darwin,Assault,207,127,105,207,10
+2025-12,Darwin,Burglary - dwelling,21,0,0,21,2
+2025-12,Darwin,Burglary - non-residential,9,0,0,9,1
+2025-12,Darwin,Harm or endanger persons,23,0,0,23,4
+2025-12,Darwin,Homicide,1,0,0,1,1
+2025-12,Darwin,Property damage offences,175,0,0,175,1
+2025-12,Darwin,"Robbery, blackmail, and extortion",11,0,0,11,1
+2025-12,Darwin,Sexual offences,21,0,0,21,4
+2025-12,Darwin,Theft,254,0,0,254,2
+2025-12,Katherine,Assault,63,50,27,63,7
+2025-12,Katherine,Burglary - dwelling,27,0,0,27,2
+2025-12,Katherine,Burglary - non-residential,15,0,0,15,2
+2025-12,Katherine,Harm or endanger persons,10,0,0,10,2
+2025-12,Katherine,Homicide,1,0,0,1,1
+2025-12,Katherine,Property damage offences,52,0,0,52,1
+2025-12,Katherine,"Robbery, blackmail, and extortion",7,0,0,7,1
+2025-12,Katherine,Sexual offences,6,0,0,6,3
+2025-12,Katherine,Theft,40,0,0,40,2
+2025-12,Nhulunbuy,Assault,9,7,6,9,5
+2025-12,Nhulunbuy,Burglary - dwelling,2,0,0,2,1
+2025-12,Nhulunbuy,Burglary - non-residential,2,0,0,2,1
+2025-12,Nhulunbuy,Harm or endanger persons,2,0,0,2,2
+2025-12,Nhulunbuy,Property damage offences,5,0,0,5,1
+2025-12,Nhulunbuy,Theft,3,0,0,3,1
+2025-12,NT Balance,Assault,316,219,81,24,87
+2025-12,NT Balance,Burglary - dwelling,27,0,0,1,17
+2025-12,NT Balance,Burglary - non-residential,39,0,0,2,18
+2025-12,NT Balance,Harm or endanger persons,36,0,0,2,21
+2025-12,NT Balance,Homicide,4,0,0,2,4
+2025-12,NT Balance,Property damage offences,134,0,0,18,18
+2025-12,NT Balance,"Robbery, blackmail, and extortion",8,0,0,2,3
+2025-12,NT Balance,Sexual offences,14,0,0,4,9
+2025-12,NT Balance,Theft,94,0,0,9,27
+2025-12,Palmerston,Assault,100,70,52,100,11
+2025-12,Palmerston,Burglary - dwelling,13,0,0,13,2
+2025-12,Palmerston,Burglary - non-residential,8,0,0,8,2
+2025-12,Palmerston,Harm or endanger persons,6,0,0,6,3
+2025-12,Palmerston,Property damage offences,84,0,0,84,1
+2025-12,Palmerston,"Robbery, blackmail, and extortion",2,0,0,2,1
+2025-12,Palmerston,Sexual offences,10,0,0,10,2
+2025-12,Palmerston,Theft,106,0,0,106,2
+2025-12,Tennant Creek,Assault,33,27,26,33,7
+2025-12,Tennant Creek,Burglary - dwelling,16,0,0,16,1
+2025-12,Tennant Creek,Burglary - non-residential,4,0,0,4,1
+2025-12,Tennant Creek,Harm or endanger persons,1,0,0,1,1
+2025-12,Tennant Creek,Property damage offences,29,0,0,29,1
+2025-12,Tennant Creek,"Robbery, blackmail, and extortion",2,0,0,2,1
+2025-12,Tennant Creek,Theft,27,0,0,27,2
+2026-01,Alice Springs,Assault,151,107,84,151,11
+2026-01,Alice Springs,Burglary - dwelling,45,0,0,45,2
+2026-01,Alice Springs,Burglary - non-residential,15,0,0,15,2
+2026-01,Alice Springs,Harm or endanger persons,28,0,0,28,2
+2026-01,Alice Springs,Property damage offences,119,0,0,119,1
+2026-01,Alice Springs,"Robbery, blackmail, and extortion",6,0,0,6,1
+2026-01,Alice Springs,Sexual offences,10,0,0,10,2
+2026-01,Alice Springs,Theft,110,0,0,110,2
+2026-01,Darwin,Assault,176,98,93,176,10
+2026-01,Darwin,Burglary - dwelling,27,0,0,27,2
+2026-01,Darwin,Burglary - non-residential,16,0,0,16,2
+2026-01,Darwin,Harm or endanger persons,21,0,0,21,3
+2026-01,Darwin,Homicide,1,0,0,1,1
+2026-01,Darwin,Property damage offences,168,0,0,168,1
+2026-01,Darwin,"Robbery, blackmail, and extortion",4,0,0,4,1
+2026-01,Darwin,Sexual offences,16,0,0,16,4
+2026-01,Darwin,Theft,234,0,0,234,2
+2026-01,Katherine,Assault,68,50,29,68,8
+2026-01,Katherine,Burglary - dwelling,25,0,0,25,2
+2026-01,Katherine,Burglary - non-residential,3,0,0,3,1
+2026-01,Katherine,Harm or endanger persons,5,0,0,5,2
+2026-01,Katherine,Property damage offences,57,0,0,57,1
+2026-01,Katherine,"Robbery, blackmail, and extortion",5,0,0,5,1
+2026-01,Katherine,Sexual offences,3,0,0,3,2
+2026-01,Katherine,Theft,28,0,0,28,2
+2026-01,Nhulunbuy,Assault,4,2,1,4,3
+2026-01,Nhulunbuy,Burglary - dwelling,3,0,0,3,1
+2026-01,Nhulunbuy,Burglary - non-residential,3,0,0,3,1
+2026-01,Nhulunbuy,Property damage offences,8,0,0,8,1
+2026-01,Nhulunbuy,"Robbery, blackmail, and extortion",1,0,0,1,1
+2026-01,Nhulunbuy,Theft,6,0,0,6,1
+2026-01,NT Balance,Assault,316,203,50,16,79
+2026-01,NT Balance,Burglary - dwelling,51,0,0,3,16
+2026-01,NT Balance,Burglary - non-residential,55,0,0,1,20
+2026-01,NT Balance,Harm or endanger persons,39,0,0,2,24
+2026-01,NT Balance,Homicide,3,0,0,0,3
+2026-01,NT Balance,Property damage offences,164,0,0,16,19
+2026-01,NT Balance,"Robbery, blackmail, and extortion",4,0,0,0,3
+2026-01,NT Balance,Sexual offences,21,0,0,6,16
+2026-01,NT Balance,Theft,97,0,0,8,23
+2026-01,Palmerston,Assault,105,62,54,105,10
+2026-01,Palmerston,Burglary - dwelling,23,0,0,23,2
+2026-01,Palmerston,Burglary - non-residential,11,0,0,11,2
+2026-01,Palmerston,Harm or endanger persons,8,0,0,8,3
+2026-01,Palmerston,Property damage offences,103,0,0,103,1
+2026-01,Palmerston,"Robbery, blackmail, and extortion",5,0,0,5,1
+2026-01,Palmerston,Sexual offences,7,0,0,7,3
+2026-01,Palmerston,Theft,138,0,0,138,2
+2026-01,Tennant Creek,Assault,39,25,23,39,8
+2026-01,Tennant Creek,Burglary - dwelling,15,0,0,15,2
+2026-01,Tennant Creek,Burglary - non-residential,10,0,0,10,2
+2026-01,Tennant Creek,Harm or endanger persons,4,0,0,4,3
+2026-01,Tennant Creek,Property damage offences,61,0,0,61,1
+2026-01,Tennant Creek,"Robbery, blackmail, and extortion",2,0,0,2,1
+2026-01,Tennant Creek,Sexual offences,2,0,0,2,2
+2026-01,Tennant Creek,Theft,17,0,0,17,2
+2026-02,Alice Springs,Assault,181,122,82,181,11
+2026-02,Alice Springs,Burglary - dwelling,47,0,0,47,2
+2026-02,Alice Springs,Burglary - non-residential,11,0,0,11,2
+2026-02,Alice Springs,Harm or endanger persons,24,0,0,24,2
+2026-02,Alice Springs,Property damage offences,110,0,0,110,1
+2026-02,Alice Springs,"Robbery, blackmail, and extortion",3,0,0,3,1
+2026-02,Alice Springs,Sexual offences,9,0,0,9,4
+2026-02,Alice Springs,Theft,83,0,0,83,2
+2026-02,Darwin,Assault,200,115,105,200,12
+2026-02,Darwin,Burglary - dwelling,40,0,0,40,2
+2026-02,Darwin,Burglary - non-residential,13,0,0,13,2
+2026-02,Darwin,Harm or endanger persons,33,0,0,33,4
+2026-02,Darwin,Property damage offences,194,0,0,194,1
+2026-02,Darwin,"Robbery, blackmail, and extortion",15,0,0,15,2
+2026-02,Darwin,Sexual offences,15,0,0,15,4
+2026-02,Darwin,Theft,228,0,0,228,2
+2026-02,Katherine,Assault,78,51,36,78,11
+2026-02,Katherine,Burglary - dwelling,19,0,0,19,2
+2026-02,Katherine,Burglary - non-residential,12,0,0,12,2
+2026-02,Katherine,Harm or endanger persons,8,0,0,8,2
+2026-02,Katherine,Homicide,1,0,0,1,1
+2026-02,Katherine,Property damage offences,55,0,0,55,1
+2026-02,Katherine,"Robbery, blackmail, and extortion",12,0,0,12,1
+2026-02,Katherine,Sexual offences,6,0,0,6,2
+2026-02,Katherine,Theft,40,0,0,40,2
+2026-02,Nhulunbuy,Assault,11,6,9,11,5
+2026-02,Nhulunbuy,Burglary - dwelling,3,0,0,3,2
+2026-02,Nhulunbuy,Burglary - non-residential,5,0,0,5,2
+2026-02,Nhulunbuy,Property damage offences,5,0,0,5,1
+2026-02,Nhulunbuy,Theft,1,0,0,1,1
+2026-02,NT Balance,Assault,195,114,55,10,68
+2026-02,NT Balance,Burglary - dwelling,30,0,0,0,16
+2026-02,NT Balance,Burglary - non-residential,46,0,0,3,12
+2026-02,NT Balance,Harm or endanger persons,27,0,0,1,19
+2026-02,NT Balance,Homicide,2,0,0,0,2
+2026-02,NT Balance,Property damage offences,106,0,0,17,19
+2026-02,NT Balance,"Robbery, blackmail, and extortion",3,0,0,0,3
+2026-02,NT Balance,Sexual offences,16,0,0,1,10
+2026-02,NT Balance,Theft,93,0,0,13,22
+2026-02,Palmerston,Assault,88,55,50,88,10
+2026-02,Palmerston,Burglary - dwelling,22,0,0,22,2
+2026-02,Palmerston,Burglary - non-residential,6,0,0,6,2
+2026-02,Palmerston,Harm or endanger persons,14,0,0,14,3
+2026-02,Palmerston,Property damage offences,109,0,0,109,1
+2026-02,Palmerston,"Robbery, blackmail, and extortion",6,0,0,6,1
+2026-02,Palmerston,Sexual offences,6,0,0,6,2
+2026-02,Palmerston,Theft,98,0,0,98,2
+2026-02,Tennant Creek,Assault,30,21,21,30,6
+2026-02,Tennant Creek,Burglary - dwelling,6,0,0,6,1
+2026-02,Tennant Creek,Burglary - non-residential,6,0,0,6,2
+2026-02,Tennant Creek,Harm or endanger persons,2,0,0,2,2
+2026-02,Tennant Creek,Property damage offences,39,0,0,39,1
+2026-02,Tennant Creek,Sexual offences,1,0,0,1,1
+2026-02,Tennant Creek,Theft,14,0,0,14,2
+2026-03,Alice Springs,Assault,155,99,69,155,11
+2026-03,Alice Springs,Burglary - dwelling,49,0,0,49,2
+2026-03,Alice Springs,Burglary - non-residential,12,0,0,12,2
+2026-03,Alice Springs,Harm or endanger persons,19,0,0,19,3
+2026-03,Alice Springs,Homicide,1,0,0,1,1
+2026-03,Alice Springs,Property damage offences,128,0,0,128,1
+2026-03,Alice Springs,"Robbery, blackmail, and extortion",10,0,0,10,1
+2026-03,Alice Springs,Sexual offences,13,0,0,13,3
+2026-03,Alice Springs,Theft,117,0,0,117,2
+2026-03,Darwin,Assault,225,116,113,225,11
+2026-03,Darwin,Burglary - dwelling,63,0,0,63,2
+2026-03,Darwin,Burglary - non-residential,13,0,0,13,2
+2026-03,Darwin,Harm or endanger persons,23,0,0,23,4
+2026-03,Darwin,Property damage offences,173,0,0,173,1
+2026-03,Darwin,"Robbery, blackmail, and extortion",8,0,0,8,1
+2026-03,Darwin,Sexual offences,23,0,0,23,4
+2026-03,Darwin,Theft,258,0,0,258,2
+2026-03,Katherine,Assault,66,41,32,66,10
+2026-03,Katherine,Burglary - dwelling,7,0,0,7,2
+2026-03,Katherine,Burglary - non-residential,3,0,0,3,2
+2026-03,Katherine,Harm or endanger persons,4,0,0,4,2
+2026-03,Katherine,Homicide,1,0,0,1,1
+2026-03,Katherine,Property damage offences,33,0,0,33,1
+2026-03,Katherine,"Robbery, blackmail, and extortion",1,0,0,1,1
+2026-03,Katherine,Sexual offences,6,0,0,6,3
+2026-03,Katherine,Theft,28,0,0,28,1
+2026-03,Nhulunbuy,Assault,10,6,7,10,7
+2026-03,Nhulunbuy,Burglary - dwelling,1,0,0,1,1
+2026-03,Nhulunbuy,Burglary - non-residential,1,0,0,1,1
+2026-03,Nhulunbuy,Harm or endanger persons,3,0,0,3,1
+2026-03,Nhulunbuy,Property damage offences,4,0,0,4,1
+2026-03,Nhulunbuy,Sexual offences,5,0,0,5,3
+2026-03,Nhulunbuy,Theft,2,0,0,2,1
+2026-03,NT Balance,Assault,194,108,27,13,66
+2026-03,NT Balance,Burglary - dwelling,24,0,0,0,10
+2026-03,NT Balance,Burglary - non-residential,42,0,0,2,11
+2026-03,NT Balance,Harm or endanger persons,27,0,0,1,18
+2026-03,NT Balance,Property damage offences,100,0,0,14,18
+2026-03,NT Balance,"Robbery, blackmail, and extortion",8,0,0,0,5
+2026-03,NT Balance,Sexual offences,14,0,0,1,12
+2026-03,NT Balance,Theft,87,0,0,7,21
+2026-03,Palmerston,Assault,104,68,50,104,9
+2026-03,Palmerston,Burglary - dwelling,19,0,0,19,2
+2026-03,Palmerston,Burglary - non-residential,6,0,0,6,1
+2026-03,Palmerston,Harm or endanger persons,13,0,0,13,2
+2026-03,Palmerston,Property damage offences,124,0,0,124,1
+2026-03,Palmerston,"Robbery, blackmail, and extortion",4,0,0,4,1
+2026-03,Palmerston,Sexual offences,13,0,0,13,4
+2026-03,Palmerston,Theft,116,0,0,116,2
+2026-03,Tennant Creek,Assault,26,15,17,26,7
+2026-03,Tennant Creek,Burglary - dwelling,10,0,0,10,1
+2026-03,Tennant Creek,Burglary - non-residential,2,0,0,2,1
+2026-03,Tennant Creek,Harm or endanger persons,5,0,0,5,2
+2026-03,Tennant Creek,Property damage offences,19,0,0,19,1
+2026-03,Tennant Creek,"Robbery, blackmail, and extortion",1,0,0,1,1
+2026-03,Tennant Creek,Theft,17,0,0,17,1
+2026-04,Alice Springs,Assault,185,127,85,185,10
+2026-04,Alice Springs,Burglary - dwelling,38,0,0,38,2
+2026-04,Alice Springs,Burglary - non-residential,4,0,0,4,1
+2026-04,Alice Springs,Harm or endanger persons,20,0,0,20,3
+2026-04,Alice Springs,Homicide,1,0,0,1,1
+2026-04,Alice Springs,Property damage offences,111,0,0,111,1
+2026-04,Alice Springs,"Robbery, blackmail, and extortion",5,0,0,5,1
+2026-04,Alice Springs,Sexual offences,6,0,0,6,2
+2026-04,Alice Springs,Theft,115,0,0,115,2
+2026-04,Darwin,Assault,212,117,98,212,11
+2026-04,Darwin,Burglary - dwelling,52,0,0,52,2
+2026-04,Darwin,Burglary - non-residential,17,0,0,17,2
+2026-04,Darwin,Harm or endanger persons,30,0,0,30,4
+2026-04,Darwin,Property damage offences,226,0,0,226,1
+2026-04,Darwin,"Robbery, blackmail, and extortion",19,0,0,19,1
+2026-04,Darwin,Sexual offences,17,0,0,17,4
+2026-04,Darwin,Theft,303,0,0,303,2
+2026-04,Katherine,Assault,58,41,30,58,9
+2026-04,Katherine,Burglary - dwelling,13,0,0,13,2
+2026-04,Katherine,Burglary - non-residential,4,0,0,4,2
+2026-04,Katherine,Harm or endanger persons,11,0,0,11,3
+2026-04,Katherine,Property damage offences,37,0,0,37,1
+2026-04,Katherine,"Robbery, blackmail, and extortion",6,0,0,6,1
+2026-04,Katherine,Sexual offences,4,0,0,4,3
+2026-04,Katherine,Theft,47,0,0,47,2
+2026-04,Nhulunbuy,Assault,13,7,9,13,5
+2026-04,Nhulunbuy,Burglary - dwelling,3,0,0,3,1
+2026-04,Nhulunbuy,Property damage offences,15,0,0,15,1
+2026-04,Nhulunbuy,Sexual offences,3,0,0,3,2
+2026-04,Nhulunbuy,Theft,4,0,0,4,2
+2026-04,NT Balance,Assault,250,166,53,20,71
+2026-04,NT Balance,Burglary - dwelling,39,0,0,2,17
+2026-04,NT Balance,Burglary - non-residential,34,0,0,3,13
+2026-04,NT Balance,Harm or endanger persons,39,0,0,4,24
+2026-04,NT Balance,Homicide,2,0,0,0,2
+2026-04,NT Balance,Property damage offences,118,0,0,10,20
+2026-04,NT Balance,"Robbery, blackmail, and extortion",9,0,0,3,5
+2026-04,NT Balance,Sexual offences,11,0,0,1,11
+2026-04,NT Balance,Theft,99,0,0,6,24
+2026-04,Palmerston,Assault,79,44,32,79,10
+2026-04,Palmerston,Burglary - dwelling,20,0,0,20,2
+2026-04,Palmerston,Burglary - non-residential,8,0,0,8,2
+2026-04,Palmerston,Harm or endanger persons,6,0,0,6,2
+2026-04,Palmerston,Property damage offences,111,0,0,111,1
+2026-04,Palmerston,"Robbery, blackmail, and extortion",3,0,0,3,1
+2026-04,Palmerston,Sexual offences,6,0,0,6,3
+2026-04,Palmerston,Theft,124,0,0,124,2
+2026-04,Tennant Creek,Assault,27,22,18,27,5
+2026-04,Tennant Creek,Burglary - dwelling,17,0,0,17,2
+2026-04,Tennant Creek,Burglary - non-residential,2,0,0,2,1
+2026-04,Tennant Creek,Harm or endanger persons,1,0,0,1,1
+2026-04,Tennant Creek,Property damage offences,23,0,0,23,1
+2026-04,Tennant Creek,Sexual offences,4,0,0,4,2
+2026-04,Tennant Creek,Theft,21,0,0,21,1
+2026-05,Alice Springs,Assault,160,108,93,160,10
+2026-05,Alice Springs,Burglary - dwelling,42,0,0,42,2
+2026-05,Alice Springs,Burglary - non-residential,15,0,0,15,2
+2026-05,Alice Springs,Harm or endanger persons,18,0,0,18,2
+2026-05,Alice Springs,Property damage offences,115,0,0,115,1
+2026-05,Alice Springs,"Robbery, blackmail, and extortion",3,0,0,3,1
+2026-05,Alice Springs,Sexual offences,11,0,0,11,3
+2026-05,Alice Springs,Theft,113,0,0,113,2
+2026-05,Darwin,Assault,231,115,96,231,10
+2026-05,Darwin,Burglary - dwelling,49,0,0,49,2
+2026-05,Darwin,Burglary - non-residential,13,0,0,13,2
+2026-05,Darwin,Harm or endanger persons,28,0,0,28,3
+2026-05,Darwin,Property damage offences,208,0,0,208,1
+2026-05,Darwin,"Robbery, blackmail, and extortion",18,0,0,18,1
+2026-05,Darwin,Sexual offences,16,0,0,16,3
+2026-05,Darwin,Theft,231,0,0,231,2
+2026-05,Katherine,Assault,80,55,50,80,10
+2026-05,Katherine,Burglary - dwelling,18,0,0,18,2
+2026-05,Katherine,Burglary - non-residential,2,0,0,2,2
+2026-05,Katherine,Harm or endanger persons,14,0,0,14,3
+2026-05,Katherine,Property damage offences,38,0,0,38,1
+2026-05,Katherine,"Robbery, blackmail, and extortion",3,0,0,3,1
+2026-05,Katherine,Sexual offences,3,0,0,3,2
+2026-05,Katherine,Theft,39,0,0,39,2
+2026-05,Nhulunbuy,Assault,10,8,6,10,5
+2026-05,Nhulunbuy,Burglary - dwelling,16,0,0,16,2
+2026-05,Nhulunbuy,Burglary - non-residential,2,0,0,2,1
+2026-05,Nhulunbuy,Harm or endanger persons,1,0,0,1,1
+2026-05,Nhulunbuy,Property damage offences,8,0,0,8,1
+2026-05,Nhulunbuy,Sexual offences,2,0,0,2,1
+2026-05,Nhulunbuy,Theft,12,0,0,12,2
+2026-05,NT Balance,Assault,251,156,62,16,73
+2026-05,NT Balance,Burglary - dwelling,26,0,0,2,12
+2026-05,NT Balance,Burglary - non-residential,51,0,0,1,16
+2026-05,NT Balance,Harm or endanger persons,35,0,0,2,23
+2026-05,NT Balance,Homicide,1,0,0,0,1
+2026-05,NT Balance,Property damage offences,135,0,0,20,20
+2026-05,NT Balance,"Robbery, blackmail, and extortion",6,0,0,3,3
+2026-05,NT Balance,Sexual offences,13,0,0,2,12
+2026-05,NT Balance,Theft,95,0,0,13,22
+2026-05,Palmerston,Assault,91,58,33,91,11
+2026-05,Palmerston,Burglary - dwelling,24,0,0,24,2
+2026-05,Palmerston,Burglary - non-residential,8,0,0,8,1
+2026-05,Palmerston,Harm or endanger persons,9,0,0,9,3
+2026-05,Palmerston,Property damage offences,116,0,0,116,1
+2026-05,Palmerston,"Robbery, blackmail, and extortion",6,0,0,6,1
+2026-05,Palmerston,Sexual offences,5,0,0,5,2
+2026-05,Palmerston,Theft,101,0,0,101,2
+2026-05,Tennant Creek,Assault,26,18,20,26,5
+2026-05,Tennant Creek,Burglary - dwelling,16,0,0,16,1
+2026-05,Tennant Creek,Burglary - non-residential,9,0,0,9,2
+2026-05,Tennant Creek,Harm or endanger persons,3,0,0,3,2
+2026-05,Tennant Creek,Property damage offences,20,0,0,20,1
+2026-05,Tennant Creek,"Robbery, blackmail, and extortion",1,0,0,1,1
+2026-05,Tennant Creek,Theft,29,0,0,29,2
+2026-06,Alice Springs,Assault,126,89,68,126,11
+2026-06,Alice Springs,Burglary - dwelling,30,0,0,30,2
+2026-06,Alice Springs,Burglary - non-residential,4,0,0,4,2
+2026-06,Alice Springs,Harm or endanger persons,20,0,0,20,3
+2026-06,Alice Springs,Property damage offences,124,0,0,124,1
+2026-06,Alice Springs,"Robbery, blackmail, and extortion",4,0,0,4,1
+2026-06,Alice Springs,Sexual offences,5,0,0,5,2
+2026-06,Alice Springs,Theft,80,0,0,80,2
+2026-06,Darwin,Assault,170,105,83,170,10
+2026-06,Darwin,Burglary - dwelling,43,0,0,43,2
+2026-06,Darwin,Burglary - non-residential,10,0,0,10,2
+2026-06,Darwin,Harm or endanger persons,13,0,0,13,2
+2026-06,Darwin,Property damage offences,201,0,0,201,1
+2026-06,Darwin,"Robbery, blackmail, and extortion",13,0,0,13,1
+2026-06,Darwin,Sexual offences,20,0,0,20,3
+2026-06,Darwin,Theft,221,0,0,221,2
+2026-06,Katherine,Assault,86,53,40,86,9
+2026-06,Katherine,Burglary - dwelling,20,0,0,20,2
+2026-06,Katherine,Burglary - non-residential,3,0,0,3,2
+2026-06,Katherine,Harm or endanger persons,8,0,0,8,3
+2026-06,Katherine,Property damage offences,54,0,0,54,1
+2026-06,Katherine,Sexual offences,3,0,0,3,1
+2026-06,Katherine,Theft,46,0,0,46,2
+2026-06,Nhulunbuy,Assault,5,3,2,5,4
+2026-06,Nhulunbuy,Burglary - dwelling,7,0,0,7,2
+2026-06,Nhulunbuy,Burglary - non-residential,1,0,0,1,1
+2026-06,Nhulunbuy,Harm or endanger persons,1,0,0,1,1
+2026-06,Nhulunbuy,Property damage offences,4,0,0,4,1
+2026-06,Nhulunbuy,Sexual offences,4,0,0,4,2
+2026-06,Nhulunbuy,Theft,3,0,0,3,2
+2026-06,NT Balance,Assault,278,184,57,27,81
+2026-06,NT Balance,Burglary - dwelling,26,0,0,4,10
+2026-06,NT Balance,Burglary - non-residential,28,0,0,0,11
+2026-06,NT Balance,Harm or endanger persons,33,0,0,2,19
+2026-06,NT Balance,Property damage offences,132,0,0,23,19
+2026-06,NT Balance,"Robbery, blackmail, and extortion",6,0,0,0,4
+2026-06,NT Balance,Sexual offences,14,0,0,4,12
+2026-06,NT Balance,Theft,84,0,0,14,22
+2026-06,Palmerston,Assault,79,45,31,79,11
+2026-06,Palmerston,Burglary - dwelling,21,0,0,21,2
+2026-06,Palmerston,Burglary - non-residential,5,0,0,5,2
+2026-06,Palmerston,Harm or endanger persons,19,0,0,19,2
+2026-06,Palmerston,Property damage offences,112,0,0,112,1
+2026-06,Palmerston,"Robbery, blackmail, and extortion",10,0,0,10,1
+2026-06,Palmerston,Sexual offences,3,0,0,3,2
+2026-06,Palmerston,Theft,69,0,0,69,2
+2026-06,Tennant Creek,Assault,37,28,29,37,7
+2026-06,Tennant Creek,Burglary - dwelling,1,0,0,1,1
+2026-06,Tennant Creek,Burglary - non-residential,1,0,0,1,1
+2026-06,Tennant Creek,Harm or endanger persons,4,0,0,4,2
+2026-06,Tennant Creek,Homicide,1,0,0,1,1
+2026-06,Tennant Creek,Property damage offences,28,0,0,28,1
+2026-06,Tennant Creek,Sexual offences,1,0,0,1,1
+2026-06,Tennant Creek,Theft,17,0,0,17,2
+2026-06,Unknown,Sexual offences,1,0,0,1,1
