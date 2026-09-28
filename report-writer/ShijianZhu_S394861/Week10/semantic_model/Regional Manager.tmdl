@@ -1,0 +1,14 @@
+/// Dynamic regional access based on Microsoft Entra user principal name
+role 'Regional Manager'
+    modelPermission: read
+
+    tablePermission Crime =
+        VAR CurrentUser = LOWER(USERPRINCIPALNAME())
+        RETURN
+            COUNTROWS(
+                FILTER(
+                    'RLS Territory Access',
+                    LOWER('RLS Territory Access'[UserEmail]) = CurrentUser
+                        && 'RLS Territory Access'[Reporting Region] = Crime[Reporting Region]
+                )
+            ) > 0

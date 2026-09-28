@@ -1,0 +1,7 @@
+*.pdf binary
+*.xlsx binary
+*.rdl text eol=lf
+*.dax text eol=lf
+*.tmdl text eol=lf
+*.md text eol=lf
+*.csv text eol=lf
