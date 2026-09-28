@@ -1,0 +1,196 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:df="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" MustUnderstand="df">
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>e5755b92-469e-4e53-92c4-7aeba506a8cf</rd:ReportID>
+  <df:DefaultFontFamily>Arial</df:DefaultFontFamily>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="NT_Crime_Analytics"><rd:SecurityType>None</rd:SecurityType><ConnectionProperties><DataProvider>PBIDATASET</DataProvider><ConnectString>Data Source=pbiazure://api.powerbi.com/;Identity Provider="https://login.microsoftonline.com/common, https://analysis.windows.net/powerbi/api, 9f248767-8e1a-42f3-836f-c092ab95ff70";Initial Catalog=sobe_wowvirtualserver-c46ef631-0408-4926-a2a5-64e5a64d7afb;Integrated Security=ClaimsToken</ConnectString></ConnectionProperties><rd:DataSourceID>9bcf0ed5-c4ef-4f0d-83c5-5f44e6116053</rd:DataSourceID><rd:PowerBIWorkspaceName>My workspace</rd:PowerBIWorkspaceName><rd:PowerBIDatasetName>NT_Crime_Analytics</rd:PowerBIDatasetName></DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="MonthlyAudit">
+      <Query><DataSourceName>NT_Crime_Analytics</DataSourceName><CommandText>EVALUATE
+SELECTCOLUMNS(
+    SUMMARIZECOLUMNS(
+        'Crime'[Month Start],
+        'Crime'[Reporting Region],
+        'Crime'[Offence Category],
+        "TotalOffences", [Total Offences],
+        "DVOffences", [Domestic Violence Offences],
+        "AlcoholOffences", [Alcohol Related Offences],
+        "MissingSA2Offences",
+            CALCULATE(
+                [Total Offences],
+                FILTER(
+                    'Crime',
+                    ISBLANK('Crime'[Statistical Area 2])
+                        || 'Crime'[Statistical Area 2] IN { "Not specified", "Unknown" }
+                )
+            ),
+        "SourceRows", COUNTROWS('Crime')
+    ),
+    "ReportMonth", FORMAT('Crime'[Month Start], "yyyy-MM"),
+    "ReportingRegion", 'Crime'[Reporting Region],
+    "OffenceCategory", 'Crime'[Offence Category],
+    "TotalOffences", [TotalOffences],
+    "DVOffences", [DVOffences],
+    "AlcoholOffences", [AlcoholOffences],
+    "MissingSA2Offences", [MissingSA2Offences],
+    "SourceRows", [SourceRows]
+)
+ORDER BY [ReportMonth], [ReportingRegion], [TotalOffences] DESC</CommandText></Query>
+      <Fields>
+        <Field Name="ReportMonth"><rd:TypeName>System.String</rd:TypeName><DataField>[ReportMonth]</DataField></Field>
+        <Field Name="ReportingRegion"><rd:TypeName>System.String</rd:TypeName><DataField>[ReportingRegion]</DataField></Field>
+        <Field Name="OffenceCategory"><rd:TypeName>System.String</rd:TypeName><DataField>[OffenceCategory]</DataField></Field>
+        <Field Name="TotalOffences"><rd:TypeName>System.Int32</rd:TypeName><DataField>[TotalOffences]</DataField></Field>
+        <Field Name="DVOffences"><rd:TypeName>System.Int32</rd:TypeName><DataField>[DVOffences]</DataField></Field>
+        <Field Name="AlcoholOffences"><rd:TypeName>System.Int32</rd:TypeName><DataField>[AlcoholOffences]</DataField></Field>
+        <Field Name="MissingSA2Offences"><rd:TypeName>System.Int32</rd:TypeName><DataField>[MissingSA2Offences]</DataField></Field>
+        <Field Name="SourceRows"><rd:TypeName>System.Int32</rd:TypeName><DataField>[SourceRows]</DataField></Field>
+      </Fields>
+      <Filters>
+        <Filter><FilterExpression>=Fields!ReportMonth.Value</FilterExpression><Operator>Equal</Operator><FilterValues><FilterValue>=Parameters!ReportMonth.Value</FilterValue></FilterValues></Filter>
+        <Filter><FilterExpression>=IIF(Parameters!Region.Value = "All Territories", "All Territories", Fields!ReportingRegion.Value)</FilterExpression><Operator>Equal</Operator><FilterValues><FilterValue>=Parameters!Region.Value</FilterValue></FilterValues></Filter>
+      </Filters>
+    </DataSet>
+  </DataSets>
+  <ReportSections>
+    <ReportSection>
+      <Body><ReportItems>
+
+            <Textbox Name="KpiTotalLabel">
+              <rd:DefaultName>KpiTotalLabel</rd:DefaultName>
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs><Paragraph><TextRuns><TextRun><Value>Total offences</Value><Style><FontFamily>Arial</FontFamily><FontSize>9pt</FontSize><FontWeight>Bold</FontWeight><Color>#1F4E78</Color></Style></TextRun></TextRuns><Style><TextAlign>Center</TextAlign></Style></Paragraph></Paragraphs>
+              <Top>0.15in</Top><Left>0.15in</Left><Height>0.25in</Height><Width>2.35in</Width>
+              <Style><Border><Style>Solid</Style><Color>#B7C9D6</Color></Border><BackgroundColor>#D9EAF7</BackgroundColor><VerticalAlign>Middle</VerticalAlign><PaddingLeft>4pt</PaddingLeft><PaddingRight>4pt</PaddingRight><PaddingTop>2pt</PaddingTop><PaddingBottom>2pt</PaddingBottom></Style>
+            </Textbox>
+
+            <Textbox Name="KpiTotalValue">
+              <rd:DefaultName>KpiTotalValue</rd:DefaultName>
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs><Paragraph><TextRuns><TextRun><Value>=Sum(Fields!TotalOffences.Value, "MonthlyAudit")</Value><Style><FontFamily>Arial</FontFamily><FontSize>16pt</FontSize><FontWeight>Bold</FontWeight><Color>#1F4E78</Color><Format>#,##0</Format></Style></TextRun></TextRuns><Style><TextAlign>Center</TextAlign></Style></Paragraph></Paragraphs>
+              <Top>0.40in</Top><Left>0.15in</Left><Height>0.42in</Height><Width>2.35in</Width>
+              <Style><Border><Style>Solid</Style><Color>#B7C9D6</Color></Border><BackgroundColor>#F7FBFE</BackgroundColor><VerticalAlign>Middle</VerticalAlign><PaddingLeft>4pt</PaddingLeft><PaddingRight>4pt</PaddingRight><PaddingTop>2pt</PaddingTop><PaddingBottom>2pt</PaddingBottom></Style>
+            </Textbox>
+
+            <Textbox Name="KpiDVLabel">
+              <rd:DefaultName>KpiDVLabel</rd:DefaultName>
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs><Paragraph><TextRuns><TextRun><Value>DV offences</Value><Style><FontFamily>Arial</FontFamily><FontSize>9pt</FontSize><FontWeight>Bold</FontWeight><Color>#1F4E78</Color></Style></TextRun></TextRuns><Style><TextAlign>Center</TextAlign></Style></Paragraph></Paragraphs>
+              <Top>0.15in</Top><Left>2.75in</Left><Height>0.25in</Height><Width>2.35in</Width>
+              <Style><Border><Style>Solid</Style><Color>#B7C9D6</Color></Border><BackgroundColor>#D9EAF7</BackgroundColor><VerticalAlign>Middle</VerticalAlign><PaddingLeft>4pt</PaddingLeft><PaddingRight>4pt</PaddingRight><PaddingTop>2pt</PaddingTop><PaddingBottom>2pt</PaddingBottom></Style>
+            </Textbox>
+
+            <Textbox Name="KpiDVValue">
+              <rd:DefaultName>KpiDVValue</rd:DefaultName>
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs><Paragraph><TextRuns><TextRun><Value>=Sum(Fields!DVOffences.Value, "MonthlyAudit")</Value><Style><FontFamily>Arial</FontFamily><FontSize>16pt</FontSize><FontWeight>Bold</FontWeight><Color>#1F4E78</Color><Format>#,##0</Format></Style></TextRun></TextRuns><Style><TextAlign>Center</TextAlign></Style></Paragraph></Paragraphs>
+              <Top>0.40in</Top><Left>2.75in</Left><Height>0.42in</Height><Width>2.35in</Width>
+              <Style><Border><Style>Solid</Style><Color>#B7C9D6</Color></Border><BackgroundColor>#F7FBFE</BackgroundColor><VerticalAlign>Middle</VerticalAlign><PaddingLeft>4pt</PaddingLeft><PaddingRight>4pt</PaddingRight><PaddingTop>2pt</PaddingTop><PaddingBottom>2pt</PaddingBottom></Style>
+            </Textbox>
+
+            <Textbox Name="KpiAlcoholLabel">
+              <rd:DefaultName>KpiAlcoholLabel</rd:DefaultName>
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs><Paragraph><TextRuns><TextRun><Value>Alcohol-related offences</Value><Style><FontFamily>Arial</FontFamily><FontSize>9pt</FontSize><FontWeight>Bold</FontWeight><Color>#1F4E78</Color></Style></TextRun></TextRuns><Style><TextAlign>Center</TextAlign></Style></Paragraph></Paragraphs>
+              <Top>0.15in</Top><Left>5.35in</Left><Height>0.25in</Height><Width>2.35in</Width>
+              <Style><Border><Style>Solid</Style><Color>#B7C9D6</Color></Border><BackgroundColor>#D9EAF7</BackgroundColor><VerticalAlign>Middle</VerticalAlign><PaddingLeft>4pt</PaddingLeft><PaddingRight>4pt</PaddingRight><PaddingTop>2pt</PaddingTop><PaddingBottom>2pt</PaddingBottom></Style>
+            </Textbox>
+
+            <Textbox Name="KpiAlcoholValue">
+              <rd:DefaultName>KpiAlcoholValue</rd:DefaultName>
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs><Paragraph><TextRuns><TextRun><Value>=Sum(Fields!AlcoholOffences.Value, "MonthlyAudit")</Value><Style><FontFamily>Arial</FontFamily><FontSize>16pt</FontSize><FontWeight>Bold</FontWeight><Color>#1F4E78</Color><Format>#,##0</Format></Style></TextRun></TextRuns><Style><TextAlign>Center</TextAlign></Style></Paragraph></Paragraphs>
+              <Top>0.40in</Top><Left>5.35in</Left><Height>0.42in</Height><Width>2.35in</Width>
+              <Style><Border><Style>Solid</Style><Color>#B7C9D6</Color></Border><BackgroundColor>#F7FBFE</BackgroundColor><VerticalAlign>Middle</VerticalAlign><PaddingLeft>4pt</PaddingLeft><PaddingRight>4pt</PaddingRight><PaddingTop>2pt</PaddingTop><PaddingBottom>2pt</PaddingBottom></Style>
+            </Textbox>
+
+            <Textbox Name="KpiMissingLabel">
+              <rd:DefaultName>KpiMissingLabel</rd:DefaultName>
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs><Paragraph><TextRuns><TextRun><Value>Offences without SA2</Value><Style><FontFamily>Arial</FontFamily><FontSize>9pt</FontSize><FontWeight>Bold</FontWeight><Color>#9C6500</Color></Style></TextRun></TextRuns><Style><TextAlign>Center</TextAlign></Style></Paragraph></Paragraphs>
+              <Top>0.15in</Top><Left>7.95in</Left><Height>0.25in</Height><Width>2.35in</Width>
+              <Style><Border><Style>Solid</Style><Color>#B7C9D6</Color></Border><BackgroundColor>#FFF2CC</BackgroundColor><VerticalAlign>Middle</VerticalAlign><PaddingLeft>4pt</PaddingLeft><PaddingRight>4pt</PaddingRight><PaddingTop>2pt</PaddingTop><PaddingBottom>2pt</PaddingBottom></Style>
+            </Textbox>
+
+            <Textbox Name="KpiMissingValue">
+              <rd:DefaultName>KpiMissingValue</rd:DefaultName>
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs><Paragraph><TextRuns><TextRun><Value>=Sum(Fields!MissingSA2Offences.Value, "MonthlyAudit")</Value><Style><FontFamily>Arial</FontFamily><FontSize>16pt</FontSize><FontWeight>Bold</FontWeight><Color>#9C6500</Color><Format>#,##0</Format></Style></TextRun></TextRuns><Style><TextAlign>Center</TextAlign></Style></Paragraph></Paragraphs>
+              <Top>0.40in</Top><Left>7.95in</Left><Height>0.42in</Height><Width>2.35in</Width>
+              <Style><Border><Style>Solid</Style><Color>#B7C9D6</Color></Border><BackgroundColor>#FFF9E6</BackgroundColor><VerticalAlign>Middle</VerticalAlign><PaddingLeft>4pt</PaddingLeft><PaddingRight>4pt</PaddingRight><PaddingTop>2pt</PaddingTop><PaddingBottom>2pt</PaddingBottom></Style>
+            </Textbox>
+        <Tablix Name="AuditTable">
+          <TablixBody>
+            <TablixColumns><TablixColumn><Width>1.7in</Width></TablixColumn><TablixColumn><Width>3.55in</Width></TablixColumn><TablixColumn><Width>1.25in</Width></TablixColumn><TablixColumn><Width>1.25in</Width></TablixColumn><TablixColumn><Width>1.25in</Width></TablixColumn><TablixColumn><Width>1.3in</Width></TablixColumn></TablixColumns>
+            <TablixRows><TablixRow><Height>0.34in</Height><TablixCells><TablixCell><CellContents><Textbox Name="HdrRegion"><rd:DefaultName>HdrRegion</rd:DefaultName><CanGrow>true</CanGrow><KeepTogether>true</KeepTogether><Paragraphs><Paragraph><TextRuns><TextRun><Value>Region</Value><Style><FontFamily>Arial</FontFamily><FontSize>9pt</FontSize><FontWeight>Bold</FontWeight><Color>#FFFFFF</Color></Style></TextRun></TextRuns><Style><TextAlign>Left</TextAlign></Style></Paragraph></Paragraphs><Style><Border><Color>#D9D9D9</Color><Style>Solid</Style></Border><BackgroundColor>#1F4E78</BackgroundColor><VerticalAlign>Middle</VerticalAlign><PaddingLeft>3pt</PaddingLeft><PaddingRight>3pt</PaddingRight><PaddingTop>2pt</PaddingTop><PaddingBottom>2pt</PaddingBottom></Style></Textbox></CellContents></TablixCell><TablixCell><CellContents><Textbox Name="HdrCategory"><rd:DefaultName>HdrCategory</rd:DefaultName><CanGrow>true</CanGrow><KeepTogether>true</KeepTogether><Paragraphs><Paragraph><TextRuns><TextRun><Value>Offence category</Value><Style><FontFamily>Arial</FontFamily><FontSize>9pt</FontSize><FontWeight>Bold</FontWeight><Color>#FFFFFF</Color></Style></TextRun></TextRuns><Style><TextAlign>Left</TextAlign></Style></Paragraph></Paragraphs><Style><Border><Color>#D9D9D9</Color><Style>Solid</Style></Border><BackgroundColor>#1F4E78</BackgroundColor><VerticalAlign>Middle</VerticalAlign><PaddingLeft>3pt</PaddingLeft><PaddingRight>3pt</PaddingRight><PaddingTop>2pt</PaddingTop><PaddingBottom>2pt</PaddingBottom></Style></Textbox></CellContents></TablixCell><TablixCell><CellContents><Textbox Name="HdrTotal"><rd:DefaultName>HdrTotal</rd:DefaultName><CanGrow>true</CanGrow><KeepTogether>true</KeepTogether><Paragraphs><Paragraph><TextRuns><TextRun><Value>Total</Value><Style><FontFamily>Arial</FontFamily><FontSize>9pt</FontSize><FontWeight>Bold</FontWeight><Color>#FFFFFF</Color></Style></TextRun></TextRuns><Style><TextAlign>Right</TextAlign></Style></Paragraph></Paragraphs><Style><Border><Color>#D9D9D9</Color><Style>Solid</Style></Border><BackgroundColor>#1F4E78</BackgroundColor><VerticalAlign>Middle</VerticalAlign><PaddingLeft>3pt</PaddingLeft><PaddingRight>3pt</PaddingRight><PaddingTop>2pt</PaddingTop><PaddingBottom>2pt</PaddingBottom></Style></Textbox></CellContents></TablixCell><TablixCell><CellContents><Textbox Name="HdrDV"><rd:DefaultName>HdrDV</rd:DefaultName><CanGrow>true</CanGrow><KeepTogether>true</KeepTogether><Paragraphs><Paragraph><TextRuns><TextRun><Value>DV</Value><Style><FontFamily>Arial</FontFamily><FontSize>9pt</FontSize><FontWeight>Bold</FontWeight><Color>#FFFFFF</Color></Style></TextRun></TextRuns><Style><TextAlign>Right</TextAlign></Style></Paragraph></Paragraphs><Style><Border><Color>#D9D9D9</Color><Style>Solid</Style></Border><BackgroundColor>#1F4E78</BackgroundColor><VerticalAlign>Middle</VerticalAlign><PaddingLeft>3pt</PaddingLeft><PaddingRight>3pt</PaddingRight><PaddingTop>2pt</PaddingTop><PaddingBottom>2pt</PaddingBottom></Style></Textbox></CellContents></TablixCell><TablixCell><CellContents><Textbox Name="HdrAlcohol"><rd:DefaultName>HdrAlcohol</rd:DefaultName><CanGrow>true</CanGrow><KeepTogether>true</KeepTogether><Paragraphs><Paragraph><TextRuns><TextRun><Value>Alcohol</Value><Style><FontFamily>Arial</FontFamily><FontSize>9pt</FontSize><FontWeight>Bold</FontWeight><Color>#FFFFFF</Color></Style></TextRun></TextRuns><Style><TextAlign>Right</TextAlign></Style></Paragraph></Paragraphs><Style><Border><Color>#D9D9D9</Color><Style>Solid</Style></Border><BackgroundColor>#1F4E78</BackgroundColor><VerticalAlign>Middle</VerticalAlign><PaddingLeft>3pt</PaddingLeft><PaddingRight>3pt</PaddingRight><PaddingTop>2pt</PaddingTop><PaddingBottom>2pt</PaddingBottom></Style></Textbox></CellContents></TablixCell><TablixCell><CellContents><Textbox Name="HdrMissing"><rd:DefaultName>HdrMissing</rd:DefaultName><CanGrow>true</CanGrow><KeepTogether>true</KeepTogether><Paragraphs><Paragraph><TextRuns><TextRun><Value>Without SA2</Value><Style><FontFamily>Arial</FontFamily><FontSize>9pt</FontSize><FontWeight>Bold</FontWeight><Color>#FFFFFF</Color></Style></TextRun></TextRuns><Style><TextAlign>Right</TextAlign></Style></Paragraph></Paragraphs><Style><Border><Color>#D9D9D9</Color><Style>Solid</Style></Border><BackgroundColor>#1F4E78</BackgroundColor><VerticalAlign>Middle</VerticalAlign><PaddingLeft>3pt</PaddingLeft><PaddingRight>3pt</PaddingRight><PaddingTop>2pt</PaddingTop><PaddingBottom>2pt</PaddingBottom></Style></Textbox></CellContents></TablixCell></TablixCells></TablixRow><TablixRow><Height>0.28in</Height><TablixCells><TablixCell><CellContents><Textbox Name="DetRegion"><rd:DefaultName>DetRegion</rd:DefaultName><CanGrow>true</CanGrow><KeepTogether>true</KeepTogether><Paragraphs><Paragraph><TextRuns><TextRun><Value>=Fields!ReportingRegion.Value</Value><Style><FontFamily>Arial</FontFamily><FontSize>9pt</FontSize><FontWeight>Normal</FontWeight><Color>#1F1F1F</Color></Style></TextRun></TextRuns><Style><TextAlign>Left</TextAlign></Style></Paragraph></Paragraphs><Style><Border><Color>#D9D9D9</Color><Style>Solid</Style></Border><BackgroundColor>#FFFFFF</BackgroundColor><VerticalAlign>Middle</VerticalAlign><PaddingLeft>3pt</PaddingLeft><PaddingRight>3pt</PaddingRight><PaddingTop>2pt</PaddingTop><PaddingBottom>2pt</PaddingBottom></Style></Textbox></CellContents></TablixCell><TablixCell><CellContents><Textbox Name="DetCategory"><rd:DefaultName>DetCategory</rd:DefaultName><CanGrow>true</CanGrow><KeepTogether>true</KeepTogether><Paragraphs><Paragraph><TextRuns><TextRun><Value>=Fields!OffenceCategory.Value</Value><Style><FontFamily>Arial</FontFamily><FontSize>9pt</FontSize><FontWeight>Normal</FontWeight><Color>#1F1F1F</Color></Style></TextRun></TextRuns><Style><TextAlign>Left</TextAlign></Style></Paragraph></Paragraphs><Style><Border><Color>#D9D9D9</Color><Style>Solid</Style></Border><BackgroundColor>#FFFFFF</BackgroundColor><VerticalAlign>Middle</VerticalAlign><PaddingLeft>3pt</PaddingLeft><PaddingRight>3pt</PaddingRight><PaddingTop>2pt</PaddingTop><PaddingBottom>2pt</PaddingBottom></Style></Textbox></CellContents></TablixCell><TablixCell><CellContents><Textbox Name="DetTotal"><rd:DefaultName>DetTotal</rd:DefaultName><CanGrow>true</CanGrow><KeepTogether>true</KeepTogether><Paragraphs><Paragraph><TextRuns><TextRun><Value>=Fields!TotalOffences.Value</Value><Style><FontFamily>Arial</FontFamily><FontSize>9pt</FontSize><FontWeight>Normal</FontWeight><Color>#1F1F1F</Color><Format>#,##0</Format></Style></TextRun></TextRuns><Style><TextAlign>Right</TextAlign></Style></Paragraph></Paragraphs><Style><Border><Color>#D9D9D9</Color><Style>Solid</Style></Border><BackgroundColor>#FFFFFF</BackgroundColor><VerticalAlign>Middle</VerticalAlign><PaddingLeft>3pt</PaddingLeft><PaddingRight>3pt</PaddingRight><PaddingTop>2pt</PaddingTop><PaddingBottom>2pt</PaddingBottom></Style></Textbox></CellContents></TablixCell><TablixCell><CellContents><Textbox Name="DetDV"><rd:DefaultName>DetDV</rd:DefaultName><CanGrow>true</CanGrow><KeepTogether>true</KeepTogether><Paragraphs><Paragraph><TextRuns><TextRun><Value>=Fields!DVOffences.Value</Value><Style><FontFamily>Arial</FontFamily><FontSize>9pt</FontSize><FontWeight>Normal</FontWeight><Color>#1F1F1F</Color><Format>#,##0</Format></Style></TextRun></TextRuns><Style><TextAlign>Right</TextAlign></Style></Paragraph></Paragraphs><Style><Border><Color>#D9D9D9</Color><Style>Solid</Style></Border><BackgroundColor>#FFFFFF</BackgroundColor><VerticalAlign>Middle</VerticalAlign><PaddingLeft>3pt</PaddingLeft><PaddingRight>3pt</PaddingRight><PaddingTop>2pt</PaddingTop><PaddingBottom>2pt</PaddingBottom></Style></Textbox></CellContents></TablixCell><TablixCell><CellContents><Textbox Name="DetAlcohol"><rd:DefaultName>DetAlcohol</rd:DefaultName><CanGrow>true</CanGrow><KeepTogether>true</KeepTogether><Paragraphs><Paragraph><TextRuns><TextRun><Value>=Fields!AlcoholOffences.Value</Value><Style><FontFamily>Arial</FontFamily><FontSize>9pt</FontSize><FontWeight>Normal</FontWeight><Color>#1F1F1F</Color><Format>#,##0</Format></Style></TextRun></TextRuns><Style><TextAlign>Right</TextAlign></Style></Paragraph></Paragraphs><Style><Border><Color>#D9D9D9</Color><Style>Solid</Style></Border><BackgroundColor>#FFFFFF</BackgroundColor><VerticalAlign>Middle</VerticalAlign><PaddingLeft>3pt</PaddingLeft><PaddingRight>3pt</PaddingRight><PaddingTop>2pt</PaddingTop><PaddingBottom>2pt</PaddingBottom></Style></Textbox></CellContents></TablixCell><TablixCell><CellContents><Textbox Name="DetMissing"><rd:DefaultName>DetMissing</rd:DefaultName><CanGrow>true</CanGrow><KeepTogether>true</KeepTogether><Paragraphs><Paragraph><TextRuns><TextRun><Value>=Fields!MissingSA2Offences.Value</Value><Style><FontFamily>Arial</FontFamily><FontSize>9pt</FontSize><FontWeight>Normal</FontWeight><Color>#1F1F1F</Color><Format>#,##0</Format></Style></TextRun></TextRuns><Style><TextAlign>Right</TextAlign></Style></Paragraph></Paragraphs><Style><Border><Color>#D9D9D9</Color><Style>Solid</Style></Border><BackgroundColor>#FFFFFF</BackgroundColor><VerticalAlign>Middle</VerticalAlign><PaddingLeft>3pt</PaddingLeft><PaddingRight>3pt</PaddingRight><PaddingTop>2pt</PaddingTop><PaddingBottom>2pt</PaddingBottom></Style></Textbox></CellContents></TablixCell></TablixCells></TablixRow></TablixRows>
+          </TablixBody>
+          <TablixColumnHierarchy><TablixMembers><TablixMember /><TablixMember /><TablixMember /><TablixMember /><TablixMember /><TablixMember /></TablixMembers></TablixColumnHierarchy>
+          <TablixRowHierarchy><TablixMembers><TablixMember><KeepWithGroup>After</KeepWithGroup><RepeatOnNewPage>true</RepeatOnNewPage><KeepTogether>true</KeepTogether></TablixMember><TablixMember><Group Name="AuditDetails" /><SortExpressions><SortExpression><Value>=Fields!TotalOffences.Value</Value><Direction>Descending</Direction></SortExpression></SortExpressions></TablixMember></TablixMembers></TablixRowHierarchy>
+          <DataSetName>MonthlyAudit</DataSetName><NoRowsMessage>No audit rows match the selected month and region.</NoRowsMessage><Top>1.05in</Top><Left>0.15in</Left><Height>0.62in</Height><Width>10.3in</Width><Style><Border><Style>None</Style></Border></Style>
+        </Tablix>
+      </ReportItems><Height>6.55in</Height><Style><Border><Style>None</Style></Border></Style></Body>
+      <Width>10.99in</Width>
+      <Page>
+        <PageHeader><Height>0.62in</Height><PrintOnFirstPage>true</PrintOnFirstPage><PrintOnLastPage>true</PrintOnLastPage><ReportItems>
+
+            <Textbox Name="ReportTitle">
+              <rd:DefaultName>ReportTitle</rd:DefaultName>
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs><Paragraph><TextRuns><TextRun><Value>NT Crime Monthly Operational Audit</Value><Style><FontFamily>Arial</FontFamily><FontSize>16pt</FontSize><FontWeight>Bold</FontWeight><Color>#000000</Color></Style></TextRun></TextRuns><Style><TextAlign>Left</TextAlign></Style></Paragraph></Paragraphs>
+              <Top>0.05in</Top><Left>0in</Left><Height>0.36in</Height><Width>6.5in</Width>
+              <Style><Border><Style>None</Style><Color>#B7C9D6</Color></Border><BackgroundColor>#FFFFFF</BackgroundColor><VerticalAlign>Middle</VerticalAlign><PaddingLeft>4pt</PaddingLeft><PaddingRight>4pt</PaddingRight><PaddingTop>2pt</PaddingTop><PaddingBottom>2pt</PaddingBottom></Style>
+            </Textbox>
+
+            <Textbox Name="ReportContext">
+              <rd:DefaultName>ReportContext</rd:DefaultName>
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs><Paragraph><TextRuns><TextRun><Value>=Parameters!ReportMonth.Label &amp; " | " &amp; Parameters!Region.Label</Value><Style><FontFamily>Arial</FontFamily><FontSize>10pt</FontSize><FontWeight>Bold</FontWeight><Color>#1F4E78</Color></Style></TextRun></TextRuns><Style><TextAlign>Right</TextAlign></Style></Paragraph></Paragraphs>
+              <Top>0.08in</Top><Left>6.7in</Left><Height>0.30in</Height><Width>4.25in</Width>
+              <Style><Border><Style>None</Style><Color>#B7C9D6</Color></Border><BackgroundColor>#FFFFFF</BackgroundColor><VerticalAlign>Middle</VerticalAlign><PaddingLeft>4pt</PaddingLeft><PaddingRight>4pt</PaddingRight><PaddingTop>2pt</PaddingTop><PaddingBottom>2pt</PaddingBottom></Style>
+            </Textbox>
+        </ReportItems><Style><Border><Style>None</Style></Border></Style></PageHeader>
+        <PageFooter><Height>0.35in</Height><PrintOnFirstPage>true</PrintOnFirstPage><PrintOnLastPage>true</PrintOnLastPage><ReportItems>
+
+            <Textbox Name="FooterSource">
+              <rd:DefaultName>FooterSource</rd:DefaultName>
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs><Paragraph><TextRuns><TextRun><Value>="Source: NT Crime Statistics snapshot 4 Aug 2026"</Value><Style><FontFamily>Arial</FontFamily><FontSize>8pt</FontSize><FontWeight>Normal</FontWeight><Color>#666666</Color></Style></TextRun></TextRuns><Style><TextAlign>Left</TextAlign></Style></Paragraph></Paragraphs>
+              <Top>0.05in</Top><Left>0in</Left><Height>0.22in</Height><Width>7.3in</Width>
+              <Style><Border><Style>None</Style><Color>#B7C9D6</Color></Border><BackgroundColor>#FFFFFF</BackgroundColor><VerticalAlign>Middle</VerticalAlign><PaddingLeft>4pt</PaddingLeft><PaddingRight>4pt</PaddingRight><PaddingTop>2pt</PaddingTop><PaddingBottom>2pt</PaddingBottom></Style>
+            </Textbox>
+
+            <Textbox Name="FooterPage">
+              <rd:DefaultName>FooterPage</rd:DefaultName>
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs><Paragraph><TextRuns><TextRun><Value>="Page " &amp; Globals!PageNumber &amp; " of " &amp; Globals!TotalPages</Value><Style><FontFamily>Arial</FontFamily><FontSize>8pt</FontSize><FontWeight>Normal</FontWeight><Color>#666666</Color></Style></TextRun></TextRuns><Style><TextAlign>Right</TextAlign></Style></Paragraph></Paragraphs>
+              <Top>0.05in</Top><Left>8.3in</Left><Height>0.22in</Height><Width>2.65in</Width>
+              <Style><Border><Style>None</Style><Color>#B7C9D6</Color></Border><BackgroundColor>#FFFFFF</BackgroundColor><VerticalAlign>Middle</VerticalAlign><PaddingLeft>4pt</PaddingLeft><PaddingRight>4pt</PaddingRight><PaddingTop>2pt</PaddingTop><PaddingBottom>2pt</PaddingBottom></Style>
+            </Textbox>
+        </ReportItems><Style><Border><Style>None</Style></Border></Style></PageFooter>
+        <PageHeight>8.27in</PageHeight><PageWidth>11.69in</PageWidth><LeftMargin>0.35in</LeftMargin><RightMargin>0.35in</RightMargin><TopMargin>0.35in</TopMargin><BottomMargin>0.35in</BottomMargin><ColumnSpacing>0.13in</ColumnSpacing><Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="ReportMonth"><DataType>String</DataType><DefaultValue><Values><Value>2026-06</Value></Values></DefaultValue><Prompt>Report month</Prompt><ValidValues><ParameterValues><ParameterValue><Value>2025-07</Value><Label>July 2025</Label></ParameterValue><ParameterValue><Value>2025-08</Value><Label>Aug 2025</Label></ParameterValue><ParameterValue><Value>2025-09</Value><Label>Sept 2025</Label></ParameterValue><ParameterValue><Value>2025-10</Value><Label>Oct 2025</Label></ParameterValue><ParameterValue><Value>2025-11</Value><Label>Nov 2025</Label></ParameterValue><ParameterValue><Value>2025-12</Value><Label>Dec 2025</Label></ParameterValue><ParameterValue><Value>2026-01</Value><Label>Jan 2026</Label></ParameterValue><ParameterValue><Value>2026-02</Value><Label>Feb 2026</Label></ParameterValue><ParameterValue><Value>2026-03</Value><Label>Mar 2026</Label></ParameterValue><ParameterValue><Value>2026-04</Value><Label>Apr 2026</Label></ParameterValue><ParameterValue><Value>2026-05</Value><Label>May 2026</Label></ParameterValue><ParameterValue><Value>2026-06</Value><Label>June 2026</Label></ParameterValue></ParameterValues></ValidValues></ReportParameter>
+    <ReportParameter Name="Region"><DataType>String</DataType><DefaultValue><Values><Value>All Territories</Value></Values></DefaultValue><Prompt>Reporting region</Prompt><ValidValues><ParameterValues><ParameterValue><Value>All Territories</Value><Label>All Territories</Label></ParameterValue><ParameterValue><Value>Alice Springs</Value><Label>Alice Springs</Label></ParameterValue><ParameterValue><Value>Darwin</Value><Label>Darwin</Label></ParameterValue><ParameterValue><Value>Katherine</Value><Label>Katherine</Label></ParameterValue><ParameterValue><Value>NT Balance</Value><Label>NT Balance</Label></ParameterValue><ParameterValue><Value>Nhulunbuy</Value><Label>Nhulunbuy</Label></ParameterValue><ParameterValue><Value>Palmerston</Value><Label>Palmerston</Label></ParameterValue><ParameterValue><Value>Tennant Creek</Value><Label>Tennant Creek</Label></ParameterValue><ParameterValue><Value>Unknown</Value><Label>Unknown</Label></ParameterValue></ParameterValues></ValidValues></ReportParameter>
+  </ReportParameters>
+  <ReportParametersLayout><GridLayoutDefinition><NumberOfColumns>2</NumberOfColumns><NumberOfRows>2</NumberOfRows><CellDefinitions><CellDefinition><ColumnIndex>0</ColumnIndex><RowIndex>0</RowIndex><ParameterName>ReportMonth</ParameterName></CellDefinition><CellDefinition><ColumnIndex>1</ColumnIndex><RowIndex>0</RowIndex><ParameterName>Region</ParameterName></CellDefinition></CellDefinitions></GridLayoutDefinition></ReportParametersLayout>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <Language>en-AU</Language>
+</Report>
